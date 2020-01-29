@@ -1,0 +1,134 @@
+syntax enable
+set background=dark
+set termguicolors
+colorscheme gruvbox
+
+"============= Settings =============
+set nocompatible                "Necessary for cool vim things
+set number relativenumber       "Line numbers relative to the present line
+set colorcolumn=80              "Have a line after 80 char
+set cursorline
+
+filetype off                  " required
+
+" =========== Set up Vundle ========
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+" Solid
+Plugin 'davidhalter/jedi-vim'
+Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-commentary'
+Plugin 'nvie/vim-flake8'
+Plugin 'itchyny/lightline.vim'
+Plugin 'lervag/vimtex'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'ambv/black'
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'kovetskiy/sxhkd-vim'
+Plugin 'morhetz/gruvbox'
+" Use it
+Plugin 'ledger/vim-ledger'
+Plugin 'scrooloose/nerdtree'
+Plugin 'plytophogy/vim-virtualenv'
+" Barely use
+Plugin 'tpope/vim-surround'
+Plugin 'szw/vim-tags'
+Plugin 'tpope/vim-repeat'
+Plugin 'michaeljsmith/vim-indent-object'
+" Consider changing
+Plugin 'ctrlpvim/ctrlp.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+" ==================================
+" using soft tabs
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+
+set hlsearch " Switch on highlighting the last used search pattern.
+" Press F4 to toggle highlighting on/off, and show current value.
+noremap <F4> :set hlsearch! hlsearch?<CR>
+
+set spell spelllang=en_gb
+noremap <F5> :set spell! spell?<CR>
+
+set backup		" keep a backup file (restore to previous version)
+if has('persistent_undo')
+    set undofile	" keep an undo file (undo changes after closing)
+endif
+
+
+" Only do this part when compiled with support for autocommands.
+if has("autocmd")
+    " Put these in an autocmd group, so that we can delete them easily.
+    augroup vimrcEx
+    au!
+    " For all text files set 'textwidth' to 78 characters.
+    autocmd FileType text setlocal textwidth=78
+    autocmd BufWritePre * %s/\s\+$//e  " remove trailing whitespaces on save
+    autocmd BufWritePre *.py execute ':Black'
+    " How can I open NERDTree automatically when vim starts up on opening a
+    " directory?
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+    autocmd FileType python setlocal completeopt-=preview
+    autocmd BufWritePost *sxhkdrc !killall sxhkd; setsid sxhkd &
+    autocmd BufWritePost *.config/polybar/config !killall polybar; polybar example &
+    autocmd BufWritePost *.config/compton.conf !pkill compton && compton &
+    augroup END
+else
+    set autoindent		" always set autoindenting on
+endif " has("autocmd")
+
+" Add optional packages.
+"
+" The matchit plugin makes the % command work better, but it is not backwards
+" compatible.
+" The ! means the package won't be loaded right away but when plugins are
+" loaded during initialization.
+if has('syntax') && has('eval')
+    packadd! matchit
+endif
+set undodir=~/.vim/.undo//
+set backupdir=~/.vim/.backup//
+set directory=~/.vim/.swp//
+" Setting Lightline
+let g:lightline = {
+      \ 'colorscheme': 'seoul256',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+set laststatus=2
+" Setting up NERDTree
+map <C-n> :NERDTreeToggle<CR>
+" Black
+let g:black_linelength=78
+noremap <F6> :Black<CR>
+" Dispatch
+nnoremap ,mh :Make! html<CR>
+nnoremap ,pp :Pandoc! pdf<CR>
+" Ledger
+" Need to disable YouCompleteMe for account completion to work :shrug:
+if exists('g:ycm_filetype_blacklist')
+    call extend(g:ycm_filetype_blacklist, { 'ledger': 1 })
+endif
