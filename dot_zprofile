@@ -1,0 +1,12 @@
+export PATH=$PATH:~/.local/bin
+# Marrying system wide python with vim-virtualenv
+export PYTHONPATH=$PYTHONPATH:~/.local/bin
+# Python projects
+export PYSWI_HOME=~/.pyswi
+export PYQSM_HOME=$PYSWI_HOME
+
+# ENV VARS
+export TERMINAL=/usr/bin/kitty
+export EDITOR=/usr/bin/vim
+export XDG_CONFIG_HOME="$HOME/.config"
+
