@@ -4,7 +4,11 @@ alias lt='ls -altorFh'
 
 alias vrc='vim ~/.vimrc'
 alias vhl='vim ~/.hledger.journal'
-alias cdg='cd {{ .graz_path }}'
+alias cdg='cd {{ .path_graz }}'
+{{- if eq .chezmoi.hostname "p180380" }}
+alias cdb='cd {{ .path_bergen }}'
+alias cdl='cd {{ .path_leipzig }}'
+{{- end }}
 alias ev=evince
 alias za=zathura
 alias cz=chezmoi
