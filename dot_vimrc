@@ -35,6 +35,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'ambv/black'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'conornewton/vim-pandoc-markdown-preview'
 Plugin 'kovetskiy/sxhkd-vim'
 Plugin 'morhetz/gruvbox'
 " Use it
@@ -126,7 +127,9 @@ let g:black_linelength=78
 noremap <F6> :Black<CR>
 " Dispatch
 nnoremap ,mh :Make! html<CR>
-nnoremap ,pp :Pandoc! pdf<CR>
+nnoremap ,pp :StartMdPreview<CR>
+" Copy full path to system register
+:nmap ,cfp :let @+ = expand("%:p")<CR>
 " Ledger
 " Need to disable YouCompleteMe for account completion to work :shrug:
 if exists('g:ycm_filetype_blacklist')
