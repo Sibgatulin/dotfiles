@@ -50,7 +50,7 @@ font-2 = Siji:style=Regular:size=10
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = xkeyboard wlan memory cpu battery date
+modules-right = xkeyboard {{ .poly_mod_internet }} memory cpu date
 
 tray-position = right
 tray-padding = 2
@@ -149,10 +149,12 @@ ramp-signal-3 = 
 ramp-signal-4 = 
 ramp-signal-foreground = ${colors.foreground-alt}
 
-[module/eth]
+{{- if eq .chezmoi.hostname "p180380" }}
+[module/wired-network]
 type = internal/network
-interface =
+interface = eth1
 interval = 3.0
+{{- end}}
 
 format-connected-underline = ${xrdb:color5:#55aa55}
 format-connected-prefix = " "
