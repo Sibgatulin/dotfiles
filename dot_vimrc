@@ -89,7 +89,7 @@ if has("autocmd")
     autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
     autocmd FileType python setlocal completeopt-=preview
     autocmd BufWritePost *sxhkdrc !killall sxhkd; setsid sxhkd &
-    autocmd BufWritePost *.config/polybar/config !killall polybar; polybar example &
+    autocmd BufWritePost *.config/polybar/config !~/.config/polybar/launch.sh
     autocmd BufWritePost *.config/compton.conf !pkill compton && compton &
     augroup END
 else

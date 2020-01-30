@@ -7,13 +7,14 @@ feh --bg-fill {{ .bg_image }}
 xsetroot -cursor_name left_ptr
 
 {{- if eq .chezmoi.hostname "p180380" }}
-bspc monitor HDMI-1 I II III IV V
-bspc monitor HDMI-2 VI VII VIII IX X
+bspc monitor HDMI-1 -d I II III IV V
+bspc monitor HDMI-2 -d VI VII VIII IX X
 {{- end}}
 {{- if eq .chezmoi.hostname "renat-pc" }}
 bspc monitor -d I II III IV V VI VII VIII IX X
 {{- end}}
-{{ .path_polybar }} example
+~/.config/polybar/launch.sh
+
 
 #### BSPWM configuration ####
 #bspc config border_radius                8
