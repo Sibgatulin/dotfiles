@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/env zsh
 
 #### AUTOSTART ####
 sxhkd &
@@ -6,13 +6,11 @@ compton &
 feh --bg-fill {{ .bg_image }}
 xsetroot -cursor_name left_ptr
 
-{{- if eq .chezmoi.hostname "p180380" }}
-bspc monitor HDMI-1 -d 1 2 3 4 5 6 7 8 9 10
-bspc monitor HDMI-2 -d 11 12 13 14 15 16 17 18 19 20
-{{- end}}
-{{- if eq .chezmoi.hostname "renat-pc" }}
-bspc monitor -d I II III IV V VI VII VIII IX X
-{{- end}}
+DEC=0
+for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+    bspc monitor $m -d {$(($DEC + 1))..$(($DEC + 10))}
+    DEC=$(($DEC+10))
+done
 ~/.config/polybar/launch.sh
 
 
