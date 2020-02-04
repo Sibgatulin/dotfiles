@@ -7,7 +7,7 @@ feh --bg-fill {{ .bg_image }}
 xsetroot -cursor_name left_ptr
 
 DEC=0
-for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+for m in $(xrandr --query | grep -w connected | cut -d" " -f1); do
     bspc monitor $m -d {$(($DEC + 1))..$(($DEC + 10))}
     DEC=$(($DEC+10))
 done
