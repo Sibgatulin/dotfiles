@@ -20,13 +20,8 @@
 include-file = ~/.config/polybar/modules.conf
 include-file = ~/.config/polybar/master.conf
 
-[bar/hdmi1]
+[bar/primary]
 inherit = bar/master
-monitor = HDMI-1
-
-
-[bar/hdmi2]
-inherit = bar/master
-monitor = HDMI-2
+monitor = ${env:MONITOR:}
 
 ; vim:ft=dosini
