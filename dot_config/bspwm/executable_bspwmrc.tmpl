@@ -5,6 +5,9 @@ sxhkd &
 compton &
 feh --bg-fill {{ .bg_image }}
 xsetroot -cursor_name left_ptr
+{{- if eq .chezmoi.hostname "renat-pc" }}
+mopidy &
+{{- end }}
 
 DEC=0
 for m in $(xrandr --query | grep -w connected | cut -d" " -f1); do
