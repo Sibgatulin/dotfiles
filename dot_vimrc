@@ -79,8 +79,6 @@ if has("autocmd")
     " Put these in an autocmd group, so that we can delete them easily.
     augroup vimrcEx
     au!
-    " For all text files set 'textwidth' to 78 characters.
-    autocmd FileType text setlocal textwidth=78
     autocmd BufWritePre * %s/\s\+$//e  " remove trailing whitespaces on save
     autocmd BufWritePre *.py execute ':Black'
     " How can I open NERDTree automatically when vim starts up on opening a
@@ -123,7 +121,7 @@ set laststatus=2
 " Setting up NERDTree
 map <C-n> :NERDTreeToggle<CR>
 " Black
-let g:black_linelength=78
+let g:black_linelength=79 " PEP8
 noremap <F6> :Black<CR>
 " Dispatch
 nnoremap ,mh :Make! html<CR>
