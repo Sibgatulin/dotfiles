@@ -4,6 +4,8 @@ export PYTHONPATH=$PYTHONPATH:~/.local/bin
 # Python projects
 export PYSWI_HOME=~/.pyswi
 export PYQSM_HOME=$PYSWI_HOME
+# ideally should be a template, but i don't use zsh at work, so fine this way
+export BIOMED1=~/Documents/biomedical_imaging_1
 
 # ENV VARS
 export TERMINAL=/usr/bin/kitty
