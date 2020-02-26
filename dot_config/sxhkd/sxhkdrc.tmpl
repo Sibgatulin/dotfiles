@@ -20,10 +20,16 @@ alt + c
 alt + k
 	$TERMINAL less {{ .chezmoi.homedir }}/soft/qmk_firmware/keyboards/keebio/iris/keymaps/sibgatulin/keymap.c
 alt + s
-	$TERMINAL ~/soft/spotify-tui/spt
+	$TERMINAL spt
 alt + m
         $TERMINAL ncmpcpp
+alt + r
+        killall spotifyd; spotifyd --config-path ~/.config/spotifyd/config
 {{- end}}
+alt + h
+        killall sxhkd; setsid sxhkd &
+alt + p
+        ~/.config/polybar/launch.sh
 # quit/restart bspwm
 super + shift + r
 	bspc wm -r

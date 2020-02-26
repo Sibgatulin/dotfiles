@@ -7,7 +7,7 @@ feh --bg-fill {{ .bg_image }}
 xsetroot -cursor_name left_ptr
 {{- if eq .chezmoi.hostname "renat-pc" }}
 mopidy &
-~/soft/spotify-tui/spotifyd --config-path ~/.config/spotifyd/spotifyd.conf
+spotifyd --config-path ~/.config/spotifyd/config
 {{- end }}
 
 DEC=0
