@@ -3,7 +3,6 @@ alias ll='ls -aloFh'
 alias lt='ls -altorFh'
 
 alias vrc='vim ~/.vimrc'
-alias vhl='vim ~/.hledger.journal'
 alias cdg='cd {{ .path_graz }}'
 alias cds='cd {{ .path_graz }}/data/subjs_all/jen-0010588044-20180119/'
 {{- if eq .chezmoi.hostname "p180380" }}
@@ -19,3 +18,8 @@ alias ev=evince
 alias za=zathura
 alias cz=chezmoi
 alias sxiv="sxiv -o" # never know when to expect smth interesting
+
+
+{{- if eq .chezmoi.hostname "renat-pc" }}
+alias vhl='vim $LEDGER_FILE'
+{{- end }}
