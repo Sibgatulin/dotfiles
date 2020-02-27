@@ -41,7 +41,7 @@ modules-left = bspwm
 {{- if eq .chezmoi.hostname "renat-pc" }}
 modules-center = mpd
 {{- end }}
-modules-right = xkeyboard {{ .poly_mod_internet }} memory swap cpu {{ .poly_mod_bat }} date
+modules-right = xkeyboard alsa {{ .poly_mod_internet }} memory swap cpu {{ .poly_mod_bat }} date
 
 tray-position = right
 tray-padding = 2

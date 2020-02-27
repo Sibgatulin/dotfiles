@@ -1,3 +1,14 @@
+[module/alsa]
+type = internal/alsa
+format-volume = <ramp-volume> <label-volume>
+;label-volume = %percentage%%
+label-muted = "    "
+format-muted-foreground = ${xrdb:color1}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:20:...%
