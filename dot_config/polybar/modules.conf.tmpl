@@ -20,22 +20,18 @@ blacklist-1 = scroll lock
 
 format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${xrdb:color9:#e60053}
 
 label-layout =  %layout%
-label-layout-underline = ${xrdb:color9:#e60053}
 
 label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
 
 [module/bspwm]
 type = internal/bspwm
 
 label-focused = %name%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
 label-focused-padding = 1
 
 label-occupied = %name%
@@ -70,7 +66,6 @@ interval = 2
 ; format-prefix = "CPU "
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${xrdb:color6:#f90000}
 label = %percentage:2%%
 
 [module/memory]
@@ -78,7 +73,6 @@ type = internal/memory
 interval = 2
 format-prefix = "MEM "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${xrdb:color1:#4bffdc}
 label = %gb_free%
 
 [module/swap]
@@ -86,7 +80,6 @@ type = internal/memory
 interval = 2
 format-prefix = "SWAP "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${xrdb:color9:#4bffdc}
 label = %gb_swap_used%
 
 [module/wlan]
@@ -95,12 +88,10 @@ interface = wlp7s0
 interval = 3.0
 
 format-connected = <label-connected> <ramp-signal>
-format-connected-underline = ${xrdb:color5:#9f78e1}
 label-connected =  %essid%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
@@ -121,14 +112,12 @@ type = internal/network
 interface = eth1
 interval = 3.0
 
-format-connected-underline = ${xrdb:color5:#55aa55}
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 {{- end}}
@@ -145,7 +134,6 @@ time-alt = %H:%M:%S
 
 format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${xrdb:color2:#0a6cf5}
 
 label =  %date% |  %time%
 
@@ -157,14 +145,11 @@ full-at = 98
 
 label-charging = %percentage%% 
 format-charging = <ramp-capacity> <label-charging>
-format-charging-underline = ${xrdb:color3:#ffb52a}
 
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
