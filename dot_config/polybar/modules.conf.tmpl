@@ -1,27 +1,27 @@
 [module/alsa]
 type = internal/alsa
 format-volume = <ramp-volume> <label-volume>
-;label-volume = %percentage%%
-label-muted = "    "
+label-volume = %percentage%%
+label-muted = " -- "
 format-muted-foreground = ${xrdb:color1}
 
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
-
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:20:...%
+ramp-volume-foreground = ${colors.foreground-alt}
 
 [module/xkeyboard]
 type = internal/xkeyboard
+format = <label-layout> <label-indicator>
 blacklist-0 = num lock
 blacklist-1 = scroll lock
+label-indicator-on-capslock = CL
+label-indicator-off-capslock = "  "
 
-format-prefix =
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 
-label-layout =  %layout%
+label-layout = %layout%
 
 label-indicator-padding = 2
 label-indicator-margin = 1
@@ -87,13 +87,8 @@ type = internal/network
 interface = wlp7s0
 interval = 3.0
 
-format-connected = <label-connected> <ramp-signal>
+format-connected = <ramp-signal> <label-connected>
 label-connected =  %essid%
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
 
 ramp-signal-0 = 
 ramp-signal-1 = 
@@ -125,17 +120,20 @@ format-disconnected =
 [module/date]
 type = internal/date
 interval = 5
-
 date = "%a %d. %b"
-date-alt = " %Y-%m-%d"
 
-time = %H:%M
-time-alt = %H:%M:%S
-
-format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
+format-prefix = " "
+label = %date%
 
-label =  %date% |  %time%
+[module/time]
+type = internal/date
+interval = 5
+time = %H:%M
+
+format-prefix-foreground = ${colors.foreground-alt}
+format-prefix = " "
+label = %time%
 
 [module/battery]
 type = internal/battery
@@ -144,8 +142,8 @@ adapter = ADP0
 full-at = 98
 
 label-charging = %percentage%% 
+label-discharging-foreground = ${xrdb:color1}
 format-charging = <ramp-capacity> <label-charging>
-
 format-discharging = <ramp-capacity> <label-discharging>
 
 format-full-prefix = " "
