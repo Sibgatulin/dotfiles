@@ -6,7 +6,7 @@ colorscheme gruvbox
 "============= Settings =============
 set nocompatible                "Necessary for cool vim things
 set number relativenumber       "Line numbers relative to the present line
-set colorcolumn=80              "Have a line after 80 char
+set colorcolumn=88
 set cursorline
 
 filetype off                  " required
@@ -124,11 +124,13 @@ set laststatus=2
 " Setting up NERDTree
 map <C-n> :NERDTreeToggle<CR>
 " Black
-let g:black_linelength=79 " PEP8
+" let g:black_linelength=79 " PEP8
 noremap <F6> :Black<CR>
 " Dispatch
 nnoremap ,mh :Make! html<CR>
+" Pandoc preview
 nnoremap ,pp :StartMdPreview<CR>
+let g:md_pdf_viewer="zathura"
 " Copy full path to system register
 :nmap ,cfp :let @+ = expand("%:p")<CR>
 " Ledger
