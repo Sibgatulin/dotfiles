@@ -89,6 +89,9 @@ if has("autocmd")
     autocmd BufWritePost *sxhkdrc !killall sxhkd; setsid sxhkd &
     autocmd BufWritePost *.config/polybar/*conf* !~/.config/polybar/launch.sh
     autocmd BufWritePost *.config/compton.conf !pkill compton && compton &
+    " Ledger
+    au FileType ledger noremap { ?^\d<CR>
+    au FileType ledger noremap } /^\d<CR>
     augroup END
 else
     set autoindent		" always set autoindenting on
@@ -129,6 +132,13 @@ nnoremap ,pp :StartMdPreview<CR>
 " Copy full path to system register
 :nmap ,cfp :let @+ = expand("%:p")<CR>
 " Ledger
+nnoremap ,ts :call ledger#transaction_state_toggle(line('.'), ' *')<CR>
+" for the following the cursor must be above the number strictly
+nnoremap ,aa :call ledger#align_amount_at_cursor()<CR>
+let g:ledger_default_commodity="EUR"
+let g:ledger_commodity_sep=" "
+let g:ledger_commodity_before=0
+" let g:ledger_align_at=55
 " Need to disable YouCompleteMe for account completion to work :shrug:
 if exists('g:ycm_filetype_blacklist')
     call extend(g:ycm_filetype_blacklist, { 'ledger': 1 })
