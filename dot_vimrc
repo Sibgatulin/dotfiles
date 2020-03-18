@@ -39,6 +39,7 @@ Plugin 'conornewton/vim-pandoc-markdown-preview'
 Plugin 'kovetskiy/sxhkd-vim'
 Plugin 'morhetz/gruvbox'
 " Use it
+Plugin 'mechatroner/rainbow_csv'
 Plugin 'ledger/vim-ledger'
 Plugin 'scrooloose/nerdtree'
 Plugin 'plytophogy/vim-virtualenv'
