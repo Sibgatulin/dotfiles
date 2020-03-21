@@ -9,7 +9,7 @@
 #umask 022
 
 # BASIC
-export TERMINAL=/usr/bin/kitty
+export TERMINAL=kitty
 export EDITOR=/usr/bin/vim
 export XDG_CONFIG_HOME="$HOME/.config"
 
@@ -31,8 +31,8 @@ export PYSWI_HOME=~/.pyswi
 export PYQSM_HOME=$PYSWI_HOME
 
 # Custom
-# ideally should be a template, but i don't use zsh at work, so fine this way
 export BIOMED1={{ .path_biomed1 }}
+export DACH_DIR={{ .path_graz }}
 {{- if eq .chezmoi.hostname "renat-pc" }}
 export LEDGER_FILE=$HOME/budget/2020.ledger
 {{- end }}
