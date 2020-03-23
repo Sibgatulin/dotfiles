@@ -17,8 +17,12 @@ alt + n
 alt + c
 	$TERMINAL calcurse
 {{- if eq .chezmoi.hostname "renat-pc" }}
+alt + d
+        surf duckduckgo.com
+alt + f
+        tabbed -c surf -e &
 alt + k
-	$TERMINAL less {{ .chezmoi.homedir }}/soft/qmk_firmware/keyboards/keebio/iris/keymaps/sibgatulin/keymap.c
+	$TERMINAL --name hint less {{ .chezmoi.homedir }}/soft/qmk_firmware/keyboards/keebio/iris/keymaps/sibgatulin/keymap.c
 alt + s
 	$TERMINAL spt
 alt + m
