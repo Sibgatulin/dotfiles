@@ -1,3 +1,25 @@
+{{- if eq .chezmoi.hostname "renat-pc" }}
+[module/mpd]
+type = internal/mpd
+host = 127.0.0.1
+port = 6600
+format-online = <label-song>
+
+icon-prev = ⏮
+icon-stop = ⏹
+icon-play = ⏵
+icon-pause = ⏸
+icon-next = ⏭
+
+label-song-maxlen = 50
+label-song-ellipsis = true
+
+[module/bluetooth]
+type = custom/script
+exec = ~/.local/bin/system-bluetooth-bluetoothctl.sh &
+tail = true
+click-left = ~/.local/bin/system-bluetooth-bluetoothctl.sh --toggle &
+
 [module/alsa]
 type = internal/alsa
 format-volume = <ramp-volume> <label-volume>
@@ -9,6 +31,48 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 ramp-volume-foreground = ${colors.foreground-alt}
+
+[module/wlan]
+type = internal/network
+interface = wlp7s0
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+label-connected =  %essid%
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+; ramp-signal-0 = ▁▁▁▁
+; ramp-signal-1 = ▁▂▃▄
+; ramp-signal-2 = ▁▂▄▅
+; ramp-signal-3 = ▁▂▄▆
+ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP0
+full-at = 98
+
+label-charging = %percentage%% 
+label-discharging-foreground = ${xrdb:color9}
+format-charging = <ramp-capacity> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground-alt}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = ${colors.foreground-alt}
+
+{{- end}}
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -25,7 +89,6 @@ label-layout = %layout%
 
 label-indicator-padding = 2
 label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
 
 [module/bspwm]
 type = internal/bspwm
@@ -44,21 +107,6 @@ label-urgent-padding = 1
 label-empty = %name%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 1
-
-[module/mpd]
-type = internal/mpd
-host = 127.0.0.1
-port = 6600
-format-online = <label-song>
-
-icon-prev = ⏮
-icon-stop = ⏹
-icon-play = ⏵
-icon-pause = ⏸
-icon-next = ⏭
-
-label-song-maxlen = 50
-label-song-ellipsis = true
 
 [module/cpu]
 type = internal/cpu
@@ -82,41 +130,6 @@ format-prefix = "SWAP "
 format-prefix-foreground = ${colors.foreground-alt}
 label = %gb_swap_used%
 
-[module/wlan]
-type = internal/network
-interface = wlp7s0
-interval = 3.0
-
-format-connected = <ramp-signal> <label-connected>
-label-connected =  %essid%
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-; ramp-signal-0 = ▁▁▁▁
-; ramp-signal-1 = ▁▂▃▄
-; ramp-signal-2 = ▁▂▄▅
-; ramp-signal-3 = ▁▂▄▆
-ramp-signal-foreground = ${colors.foreground-alt}
-
-{{- if eq .chezmoi.hostname "p180380" }}
-[module/{{ .poly_mod_internet }}]
-type = internal/network
-interface = eth1
-interval = 3.0
-
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
-{{- end}}
-
 [module/date]
 type = internal/date
 interval = 5
@@ -135,25 +148,17 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-prefix = " "
 label = %time%
 
-[module/battery]
-type = internal/battery
-battery = BAT0
-adapter = ADP0
-full-at = 98
+{{- if eq .chezmoi.hostname "p180380" }}
+[module/ethernet]
+type = internal/network
+interface = eth1
+interval = 3.0
 
-label-charging = %percentage%% 
-label-discharging-foreground = ${xrdb:color9}
-format-charging = <ramp-capacity> <label-charging>
-format-discharging = <ramp-capacity> <label-discharging>
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = %local_ip%
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
+format-disconnected =
+{{- end}}
 
 ; vim:ft=dosini

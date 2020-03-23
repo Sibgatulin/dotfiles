@@ -3,8 +3,6 @@ background = ${xrdb:background:#222}
 background-alt = #444
 foreground = ${xrdb:foreground:#222}
 foreground-alt = ${xrdb:color8:#555}
-primary = #ffb52a
-secondary = #e60053
 alert = ${xrdb:color9:#bd2c40}
 
 [settings]
@@ -40,8 +38,11 @@ font-2 = FontAwesome:style=Regular
 modules-left = bspwm
 {{- if eq .chezmoi.hostname "renat-pc" }}
 modules-center = mpd
+modules-right = wlan bluetooth xkeyboard memory swap cpu battery alsa date time
 {{- end }}
-modules-right = {{ .poly_mod_internet }} xkeyboard memory swap cpu {{ .poly_mod_bat }} alsa date time
+{{- if eq .chezmoi.hostname "p180380" }}
+modules-right = ethernet xkeyboard memory swap cpu  date time
+{{- end }}
 
 tray-position = right
 tray-padding = 2
