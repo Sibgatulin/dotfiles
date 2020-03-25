@@ -3,7 +3,8 @@
 type = internal/mpd
 host = 127.0.0.1
 port = 6600
-format-online = <label-song>
+format-online =  <label-song>
+label-song = %title% - %artist%
 
 icon-prev = ⏮
 icon-stop = ⏹
@@ -11,7 +12,7 @@ icon-play = ⏵
 icon-pause = ⏸
 icon-next = ⏭
 
-label-song-maxlen = 50
+label-song-maxlen = 30
 label-song-ellipsis = true
 
 [module/bluetooth]
