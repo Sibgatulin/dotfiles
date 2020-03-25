@@ -35,12 +35,12 @@ font-0 = Fira Code:style=Regular:size=12
 font-1 = unifont:fontformat=truetype:size=10:antialias=false;0
 font-2 = FontAwesome:style=Regular
 
-modules-left = bspwm
 {{- if eq .chezmoi.hostname "renat-pc" }}
-modules-center = mpd
+modules-left = bspwm mpd
 modules-right = wlan bluetooth xkeyboard memory swap cpu battery alsa date time
 {{- end }}
 {{- if eq .chezmoi.hostname "p180380" }}
+modules-left = bspwm
 modules-right = ethernet xkeyboard memory swap cpu  date time
 {{- end }}
 
