@@ -33,8 +33,12 @@ export PYQSM_HOME=$PYSWI_HOME
 # Custom
 export BIOMED1={{ .path_biomed1 }}
 export DACH_DIR={{ .path_graz }}
+export PATH="$DACH_DIR/scripts/pygraz2/bin:$PATH"
 {{- if eq .chezmoi.hostname "renat-pc" }}
 export LEDGER_FILE=$HOME/budget/2020.ledger
+{{- end }}
+{{- if eq .chezmoi.hostname "p180380" }}
+export MedPhysMatlabFramework=/data/projects/dev-matlab-framework/scripts/git/renat/MATLAB_MRI_Framework
 {{- end }}
 
 # vim:ft=sh
