@@ -6,12 +6,12 @@ alias vrc='vim ~/.vimrc'
 alias cdg='cd {{ .path_graz }}'
 alias cda='cd {{ .path_graz }}/data/subjs_all'
 alias cds='cd {{ .path_graz }}/data/subjs_all/jen-0010588044-20180119/'
+alias cdbl="cd $BATCH_LOG_DIR"
 {{- if eq .chezmoi.hostname "p180380" }}
 alias cdb='cd {{ .path_bergen }}'
 alias cdl='cd {{ .path_leipzig }}'
 alias cde='cd /data/exchange/renat'
 alias cdw='cd /data/edocs/Workshops\ und\ Seminare/2019/Biomedical_Imaging_Ionizing\ radiation_WiSe_2019_2020'
-alias cdbl='cd /data/exchange/renat/batchlogs'
 alias ssh='kitty +kitten ssh'
 alias c37='conda activate rs_py37'
 alias jlp='jupyter lab --no-browser --port'
