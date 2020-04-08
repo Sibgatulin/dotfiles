@@ -8,6 +8,7 @@ set nocompatible                "Necessary for cool vim things
 set number relativenumber       "Line numbers relative to the present line
 set colorcolumn=88
 set cursorline
+set scrolloff=5
 
 filetype off                  " required
 
@@ -23,7 +24,9 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 " Solid
+{{- if eq .chezmoi.hostname "p180380" }}
 Plugin 'davidhalter/jedi-vim'
+{{- end }}
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-dispatch'
@@ -81,6 +84,7 @@ if has("autocmd")
     augroup vimrcEx
     au!
     autocmd BufWritePre * %s/\s\+$//e  " remove trailing whitespaces on save
+    autocmd BufWritePre *.py %s/\n\n# In\[[0-9]\+]:\n\n//e  " remove IPython breadcrumbs
     autocmd BufWritePre *.py execute ':Black'
     " How can I open NERDTree automatically when vim starts up on opening a
     " directory?
@@ -146,3 +150,12 @@ let g:ledger_commodity_before=0
 if exists('g:ycm_filetype_blacklist')
     call extend(g:ycm_filetype_blacklist, { 'ledger': 1 })
 endif
+" Pandoc
+let g:pandoc#biblio#bibs=['~/Documents/bib/mri.bib']
+if !exists('g:ycm_semantic_triggers')
+    let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.pandoc = ['@']
+
+let g:ycm_filetype_blacklist = {}
+" vim:ft=vim

@@ -15,22 +15,22 @@ alt + z
 alt + n
 	/usr/bin/nautilus
 alt + c
-	$TERMINAL calcurse
+	$TERMINAL --exec calcurse
 {{- if eq .chezmoi.hostname "renat-pc" }}
 alt + d
         surf duckduckgo.com
 alt + f
         tabbed -c surf -e &
 alt + k
-	$TERMINAL --name hint ~/.local/bin/show_iris_layout.sh
+	$TERMINAL --name hint --exec ~/.local/bin/show_iris_layout.sh
 alt + q
 	sxiv -N hint ~/Downloads/cheatsheet-big.png
 alt + b
         qutebrowser
 alt + s
-	$TERMINAL spt
+	$TERMINAL --exec spt
 alt + m
-        $TERMINAL ncmpcpp
+        $TERMINAL --exec ncmpcpp
 alt + r
         killall spotifyd; spotifyd --config-path ~/.config/spotifyd/config
 {{- end}}

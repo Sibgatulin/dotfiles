@@ -7,6 +7,7 @@ alias cdg='cd {{ .path_graz }}'
 alias cda='cd {{ .path_graz }}/data/subjs_all'
 alias cds='cd {{ .path_graz }}/data/subjs_all/jen-0010588044-20180119/'
 alias cdbl="cd $BATCH_LOG_DIR"
+alias cdss='cd ~/Pictures/screenshots'
 {{- if eq .chezmoi.hostname "p180380" }}
 alias cdb='cd {{ .path_bergen }}'
 alias cdl='cd {{ .path_leipzig }}'
@@ -23,5 +24,7 @@ alias sxiv="sxiv -o" # never know when to expect smth interesting
 
 
 {{- if eq .chezmoi.hostname "renat-pc" }}
+alias cdq="cd ~/soft/qmk_firmware"
+alias vkm="vim ~/soft/qmk_firmware/keyboards/keebio/iris/keymaps/sibgatulin"
 alias vhl='vim $LEDGER_FILE'
 {{- end }}
