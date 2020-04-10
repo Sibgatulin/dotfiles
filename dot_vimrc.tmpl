@@ -41,6 +41,7 @@ Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'conornewton/vim-pandoc-markdown-preview'
 Plugin 'kovetskiy/sxhkd-vim'
 Plugin 'morhetz/gruvbox'
+Plugin 'sillybun/vim-repl'
 " Use it
 Plugin 'mechatroner/rainbow_csv'
 Plugin 'ledger/vim-ledger'
@@ -150,12 +151,14 @@ let g:ledger_commodity_before=0
 if exists('g:ycm_filetype_blacklist')
     call extend(g:ycm_filetype_blacklist, { 'ledger': 1 })
 endif
+map ,ca oAssets:Checking<ESC>
+map ,cc oLiabilities:CreditCard<ESC>
+
 " Pandoc
 let g:pandoc#biblio#bibs=['~/Documents/bib/mri.bib']
 if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers.pandoc = ['@']
-
 let g:ycm_filetype_blacklist = {}
 " vim:ft=vim
