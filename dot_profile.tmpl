@@ -48,6 +48,7 @@ export LEDGER_FILE=$HOME/budget/2020.ledger
 {{- end }}
 {{- if eq .chezmoi.hostname "p180380" }}
 export MedPhysMatlabFramework=/data/projects/dev-matlab-framework/scripts/git/renat/MATLAB_MRI_Framework
+umask 002
 {{- end }}
 
 # vim:ft=sh
