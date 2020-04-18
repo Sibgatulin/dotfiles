@@ -4,7 +4,7 @@
 sxhkd &
 compton &
 udiskie &
-setxkbmap -option grp:alt_shift_toggle de,eu,ru &
+setxkbmap -option grp:alt_shift_toggle eu,gr,ru &
 feh --bg-fill {{ .bg_image }}
 xsetroot -cursor_name left_ptr
 {{- if eq .chezmoi.hostname "renat-pc" }}
@@ -19,7 +19,7 @@ for m in $(xrandr --query | grep -w connected | cut -d" " -f1); do
 done
 ~/.config/polybar/launch.sh
 
-bspc rule -a Termite:hint state=floating rectangle=1420x1000+250+50
+bspc rule -a kitty:hint state=floating rectangle=1500x1000+210+50
 bspc rule -a Sxiv:hint state=floating rectangle=1320x1000+300+50
 
 #### BSPWM configuration ####

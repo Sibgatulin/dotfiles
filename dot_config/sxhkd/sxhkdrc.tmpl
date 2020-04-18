@@ -15,7 +15,7 @@ alt + z
 alt + n
 	/usr/bin/nautilus
 alt + c
-	$TERMINAL --exec calcurse
+	$TERMINAL calcurse
 {{- if eq .chezmoi.hostname "renat-pc" }}
 alt + a
         $TERMINAL --exec alsamixer
@@ -24,15 +24,15 @@ alt + d
 alt + f
         tabbed -c surf -e &
 alt + k
-	$TERMINAL --name hint --exec ~/.local/bin/show_iris_layout.sh
+	$TERMINAL --name hint ~/.local/bin/show_iris_layout.sh
 alt + q
 	sxiv -N hint ~/Downloads/cheatsheet-big.png
 alt + b
         qutebrowser
 alt + s
-	$TERMINAL --exec spt
+	$TERMINAL spt
 alt + m
-        $TERMINAL --exec ncmpcpp
+        $TERMINAL ncmpcpp
 alt + r
         killall spotifyd; spotifyd --config-path ~/.config/spotifyd/config
 {{- end}}
