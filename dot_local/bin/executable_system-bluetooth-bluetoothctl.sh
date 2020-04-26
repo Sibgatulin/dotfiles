@@ -24,6 +24,11 @@ bluetooth_print() {
     fi
 }
 
+bluetooth_prep() {
+    rfkill unblock bluetooth
+    bluetoothctl agent on
+    bluetoothctl default-agent
+}
 bluetooth_toggle_soundbuds() {
     STATUS=$(bluetoothctl info "$DEVICE" | awk 'BEGIN{IFS=":"} /Connected/ {print $2}')
     if [ "$STATUS" = "no" ]; then
@@ -34,6 +39,9 @@ bluetooth_toggle_soundbuds() {
 }
 
 case "$1" in
+    --prep)
+        bluetooth_prep
+        ;;
     --toggle)
         bluetooth_toggle_soundbuds
         ;;
