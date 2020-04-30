@@ -39,10 +39,11 @@ export BIOMED1={{ .path_biomed1 }}
 export DACH_DIR={{ .path_graz }}
 export PATH="$DACH_DIR/scripts/pygraz2/bin:$PATH"
 export PATH="$DACH_DIR/scripts/pygraz2/explorative:$PATH"
-export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/analysis:$PATH"
+export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/qa:$PATH"
 export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/dmri:$PATH"
 export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/qmri:$PATH"
 export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/mask:$PATH"
+export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/analysis:$PATH"
 {{- if eq .chezmoi.hostname "renat-pc" }}
 export LEDGER_FILE=$HOME/budget/2020.ledger
 {{- end }}
