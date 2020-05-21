@@ -22,6 +22,8 @@ alt + k
 	$TERMINAL --name hint ~/.local/bin/show_keeb_layout.sh kyria
 alt + b
         qutebrowser
+alt + x
+        setxkbmap -option grp:alt_shift_toggle eu,de,gr,ru &
 {{- if eq .chezmoi.hostname "renat-pc" }}
 alt + a
         $TERMINAL alsamixer
