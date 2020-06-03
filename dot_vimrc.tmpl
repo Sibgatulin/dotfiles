@@ -9,6 +9,7 @@ set number relativenumber       "Line numbers relative to the present line
 set colorcolumn=88
 set cursorline
 set scrolloff=5
+let g:mapleader=" "
 
 filetype off                  " required
 
@@ -133,16 +134,17 @@ map <C-n> :NERDTreeToggle<CR>
 " let g:black_linelength=79 " PEP8
 noremap <F6> :Black<CR>
 " Dispatch
-nnoremap ,mh :Make! html<CR>
+nnoremap <leader>mh :Make! html<CR>
 " Pandoc preview
-nnoremap ,pp :StartMdPreview<CR>
+nnoremap <leader>pp :StartMdPreview<CR>
 let g:md_pdf_viewer="zathura"
 " Copy full path to system register
-:nmap ,cfp :let @+ = expand("%:p")<CR>
+:nmap <leader>cfp :let @+ = expand("%:p")<CR>
 " Ledger
-nnoremap ,ts :call ledger#transaction_state_toggle(line('.'), ' *')<CR>
+nnoremap <leader>ts :call ledger#transaction_state_toggle(line('.'), ' *')<CR>
 " for the following the cursor must be above the number strictly
-nnoremap ,aa :call ledger#align_amount_at_cursor()<CR>
+nnoremap <leader>aa :call ledger#align_amount_at_cursor()<CR>
+nnoremap <leader>rc :6new<bar>read !hledger bal assets liabilities -2<CR>:setlocal ro<CR>
 let g:ledger_default_commodity="EUR"
 let g:ledger_commodity_sep=" "
 let g:ledger_commodity_before=0
@@ -151,8 +153,8 @@ let g:ledger_commodity_before=0
 if exists('g:ycm_filetype_blacklist')
     call extend(g:ycm_filetype_blacklist, { 'ledger': 1 })
 endif
-map ,ca oAssets:Checking<ESC>
-map ,cc oLiabilities:CreditCard<ESC>
+map <leader>ca oAssets:Checking<ESC>
+map <leader>cc oLiabilities:CreditCard<ESC>
 
 " Pandoc
 let g:pandoc#biblio#bibs=['~/Documents/bib/mri.bib']
