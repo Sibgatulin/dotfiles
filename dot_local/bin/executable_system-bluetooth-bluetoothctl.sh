@@ -1,24 +1,21 @@
 #!/bin/sh
-DEVICE="1C:A0:D3:9B:03:D2"
+SB="1C:A0:D3:9B:03:D2"
+WH="38:18:4C:6D:87:7C"
+query_status() {
+    DEV_MAC=$1
+    DEV_ID=$2
+    device_status=$(bluetoothctl info "$DEV_MAC" | grep "Connected" | cut -d ' ' -f 2-)
+
+    [ "$device_status" = "yes" ] && echo -n  "%{F$COLOR_ON} $DEV_ID" && return 0
+    [ "$device_status" = "no" ] && return 1
+}
+
 bluetooth_print() {
     COLOR_ON=$(xrdb -query | grep foreground | cut -f 2)
     COLOR_OFF=$(xrdb -query | grep color8 | cut -f 2)
-    TARGET_DEVICE="SoundBuds Flow"
     if [ "$(systemctl is-active "bluetooth.service")" = "active" ]; then
         echo -n "%{F$COLOR_ON} "
-
-        devices_paired=$(bluetoothctl paired-devices | grep Device | cut -d ' ' -f 2)
-
-        for device in $devices_paired; do
-            device_info=$(bluetoothctl info "$device")
-            device_alias=$(echo "$device_info" | grep "Alias" | cut -d ' ' -f 2-)
-            device_status=$(echo "$device_info" | grep "Connected" | cut -d ' ' -f 2-)
-
-            if [ "$device_alias" = "$TARGET_DEVICE" ]; then
-                [ "$device_status" = "yes" ] && echo -n  "%{F$COLOR_ON} "
-                [ "$device_status" = "no" ] && echo  -n "%{F$COLOR_OFF} "
-            fi
-        done
+        query_status $WH WH || query_status $SB SB || echo  -n "%{F$COLOR_OFF}   "
     else
         echo -n "%{F$COLOR_OFF} "
     fi
@@ -29,7 +26,8 @@ bluetooth_prep() {
     bluetoothctl agent on
     bluetoothctl default-agent
 }
-bluetooth_toggle_soundbuds() {
+bluetooth_toggle() {
+    DEVICE=$1
     STATUS=$(bluetoothctl info "$DEVICE" | awk 'BEGIN{IFS=":"} /Connected/ {print $2}')
     if [ "$STATUS" = "no" ]; then
         bluetoothctl connect "$DEVICE"
@@ -42,8 +40,11 @@ case "$1" in
     --prep)
         bluetooth_prep
         ;;
-    --toggle)
-        bluetooth_toggle_soundbuds
+    --toggle_sb)
+        bluetooth_toggle $SB
+        ;;
+    --toggle_wh)
+        bluetooth_toggle $WH
         ;;
     *)
         bluetooth_print
