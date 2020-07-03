@@ -22,6 +22,9 @@ done
 bspc rule -a kitty:music desktop='^10'
 bspc rule -a kitty:hint state=floating rectangle={{ .hint_size }}
 bspc rule -a Sxiv:hint state=floating rectangle=1320x1000+300+50
+{{- if eq .chezmoi.hostname "p180380" }}
+bspc rule -a Freeview.bin state=fullscreen
+{{- end }}
 
 #### BSPWM configuration ####
 bspc config border_width                  3
