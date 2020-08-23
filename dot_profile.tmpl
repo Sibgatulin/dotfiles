@@ -45,7 +45,7 @@ export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/dmri:$PATH"
 export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/qmri:$PATH"
 export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/mask:$PATH"
 export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/analysis:$PATH"
-{{- if eq .chezmoi.hostname "renat-pc" }}
+export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/sitecomp:$PATH"
 export LEDGER_FILE=$HOME/budget/2020.ledger
 {{- end }}
 {{- if eq .chezmoi.hostname "p180380" }}
