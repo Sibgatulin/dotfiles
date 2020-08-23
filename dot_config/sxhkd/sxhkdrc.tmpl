@@ -39,6 +39,10 @@ alt + s
 	$TERMINAL --name music spt
 alt + m
         $TERMINAL --name music ncmpcpp
+alt + t ; m
+	copy_ts_id.sh mom
+alt + t ; d
+	copy_ts_id.sh dad
 alt + r
         killall spotifyd; spotifyd --config-path ~/.config/spotifyd/config
 {{- end}}
@@ -102,8 +106,8 @@ alt + Tab
 
 
 # Swap this windows with the last focused
-super + Tab
-	bspc node -s last
+# super + Tab
+#	bspc node -s last
 
 # Cycle through the focus history
 super + {n,p}
