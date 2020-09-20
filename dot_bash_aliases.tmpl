@@ -33,3 +33,5 @@ alias vck="vim ~/soft/qmk_firmware/keyboards/kyria/keymaps/sibgatulin/config.h"
 {{- if eq .chezmoi.hostname "renat-pc" }}
 alias vhl='vim $LEDGER_FILE'
 {{- end }}
+alias clf='ls -1at | egrep -v "^\.(\.)?$" | head -1 | xclip -sel clip'
+alias ccd='basename $(pwd) | xclip -sel clip'
