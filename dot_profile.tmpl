@@ -52,6 +52,7 @@ export PATH=/usr/local/cuda-11.0/bin${PATH:+:${PATH}}
 export REG_ALADIN=
 export AIRQIP={{ .airq_ip }}
 export AIRQPASS={{ .airq_pass }}
+export AIRQJSON={{ .airq_json }}
 {{- end }}
 {{- if eq .chezmoi.hostname "p180380" }}
 export MedPhysMatlabFramework=/data/projects/dev-matlab-framework/scripts/git/renat/MATLAB_MRI_Framework
