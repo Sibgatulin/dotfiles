@@ -2,7 +2,7 @@
 mpd_crossfade_time = "3"
 mpd_host = "localhost"
 mpd_port = "6600"
-mpd_music_dir = "/mnt/data/music"
+mpd_music_dir = "/data/music"
 
 # Visualiser
 visualizer_fifo_path = "/tmp/mpd.fifo"
