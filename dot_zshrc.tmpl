@@ -43,9 +43,9 @@ source {{ .path_fzf_zsh_doc }}
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # Load syntax highlight plugin. Comes last
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2> /dev/null
+source ~/soft/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2> /dev/null
 
-{{- if eq .chezmoi.hostname "renat-pc" }}
+{{- if eq .chezmoi.hostname "ideapad" }}
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
     print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"

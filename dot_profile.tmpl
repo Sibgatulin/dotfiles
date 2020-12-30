@@ -11,6 +11,7 @@
 # BASIC
 export TERMINAL={{ .terminal }}
 export EDITOR=/usr/bin/vim
+export BROWSER=/usr/bin/firefox
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # PATH
@@ -22,7 +23,7 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 export PATH="$HOME/.cargo/bin:$PATH"
-{{- if eq .chezmoi.hostname "renat-pc" }}
+{{- if eq .chezmoi.hostname "ideapad" }}
 export PATH="$HOME/soft/mrtrix3/bin:$PATH"
 {{- end }}
 
@@ -46,7 +47,7 @@ export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/qmri:$PATH"
 export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/mask:$PATH"
 export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/analysis:$PATH"
 export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/sitecomp:$PATH"
-{{- if eq .chezmoi.hostname "renat-pc" }}
+{{- if eq .chezmoi.hostname "ideapad" }}
 export LEDGER_DATA=$HOME/budget/
 export LEDGER_FILE=$LEDGER_DATA/2020.ledger
 export PATH=/usr/local/cuda-11.0/bin${PATH:+:${PATH}}
