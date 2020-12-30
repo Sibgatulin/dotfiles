@@ -1,0 +1,4 @@
+[Default Applications]
+image/jpeg=sxiv.desktop;
+text/plain=myvim.desktop;
+application/pdf=org.pwmt.zathura.desktop;
