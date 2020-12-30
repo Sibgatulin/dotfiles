@@ -1,124 +1,118 @@
 # regolith like
 super + Return
-	$TERMINAL
+    $TERMINAL
 super + shift + Return
-	/usr/bin/sensible-browser
+    $BROWSER
 super + space
-	rofi -show drun
+    rofi -show drun
 super + shift + space
-	rofi -show run
+    rofi -show run
 super + ctrl + space
-	rofi -show window
+    rofi -show window
 
 alt + z
-    	zotero
+    zotero
 alt + n
-	/usr/bin/nautilus
+    /usr/bin/nautilus
 alt + c
-	$TERMINAL calcurse
+    $TERMINAL calcurse
 alt + i
-	$TERMINAL --name hint ~/.local/bin/show_keeb_layout.sh iris
+    $TERMINAL --name hint ~/.local/bin/show_keeb_layout.sh iris
 alt + k
-	$TERMINAL --name hint ~/.local/bin/show_keeb_layout.sh kyria
+    $TERMINAL --name hint ~/.local/bin/show_keeb_layout.sh kyria
 alt + b
-        qutebrowser
+    qutebrowser
 alt + x
-        setxkbmap -option grp:alt_shift_toggle eu,de,gr,ru &
+    setxkbmap -option grp:alt_shift_toggle eu,de,gr,ru &
 alt + u
-        unmount_seagate.sh
-{{- if eq .chezmoi.hostname "renat-pc" }}
+    unmount_seagate.sh
+{{- if eq .chezmoi.hostname "ideapad" }}
 alt + a
-        $TERMINAL alsamixer
-alt + d
-        surf duckduckgo.com
-alt + f
-        tabbed -c surf -e &
-alt + q
-	sxiv -N hint ~/Downloads/cheatsheet-big.png
+    $TERMINAL alsamixer
 alt + s
-	$TERMINAL --name music spt
+    $TERMINAL --name music spt
 alt + m
-        $TERMINAL --name music ncmpcpp
+    $TERMINAL --name music ncmpcpp
 alt + t ; m
-	copy_ts_id.sh mom
+    copy_ts_id.sh mom
 alt + t ; d
-	copy_ts_id.sh dad
+    copy_ts_id.sh dad
 alt + r
-        killall spotifyd; spotifyd --config-path ~/.config/spotifyd/config
+    killall spotifyd; spotifyd --config-path ~/.config/spotifyd/config
 {{- end}}
 alt + h
-        killall sxhkd; setsid sxhkd &
+    killall sxhkd; setsid sxhkd &
 alt + p
-        ~/.config/polybar/launch.sh
+    ~/.config/polybar/launch.sh
 # quit/restart bspwm
 super + shift + r
-	bspc wm -r
+    bspc wm -r
 super + shift + e
-	bspc quit
+    bspc quit
 super + {_, shift +} q
-	bspc node -{c,k}
+    bspc node -{c,k}
 super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
+    bspc node -{f,s} {west,south,north,east}
 
 # alternate between the tiled and monocle layout
 super + m
-	bspc desktop -l next
+    bspc desktop -l next
 
 # set the window state
 super + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+    bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+    bspc {desktop -f,node -d} '^{1-9,10}'
 super + mode_switch + {_,shift + }{1,2,3,4,5,6,7,8,9,0}
-	bspc {desktop -f,node -d} {11,12,13,14,15,16,17,18,19,20}
+    bspc {desktop -f,node -d} {11,12,13,14,15,16,17,18,19,20}
 
 # move/resize
 
 # expand a window by moving one of its side outward
 super + ctrl + {h,j,k,l}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+    bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract a window by moving one of its side inward
 super + ctrl + shift + {h,j,k,l}
-	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+    bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # move a floating window
 super + {Left,Down,Up,Right}
-	bspc node -v {-20 0,0 20,0 -20,20 0}
+    bspc node -v {-20 0,0 20,0 -20,20 0}
 
 # Volume up and down
 XF86AudioLowerVolume
-	amixer sset Master 5%-
+    amixer sset Master 5%-
 
 XF86AudioRaiseVolume
-	amixer sset Master 5%+
+    amixer sset Master 5%+
 
 XF86AudioMute
-	amixer -D pulse sset Master toggle
+    amixer -D pulse sset Master toggle
 
 Print
-	scrot $HOME/'Pictures/screenshots/%Y-%m-%d_%H%M%S_$wx$h_screenshot.png'
+    scrot $HOME/'pictures/screenshots/%Y-%m-%d_%H%M%S_$wx$h_screenshot.png'
 
 # focus the last window
 alt + Tab
-	bspc node -f prev.local
+    bspc node -f prev.local
 
 
 # Swap this windows with the last focused
 # super + Tab
-#	bspc node -s last
+#    bspc node -s last
 
 # Cycle through the focus history
 super + {n,p}
-	bspc node -f {next,prev}
+    bspc node -f {next,prev}
 
 # Flip desctop orientation by 90°
 super + backslash
-	bspc node @/ -R 90
+    bspc node @/ -R 90
 
-{{- if eq .chezmoi.hostname "renat-pc" }}
+{{- if eq .chezmoi.hostname "ideapad" }}
 # Force xrandr to use HDMI and restart bspdm
 super + shift + d
-        $HOME/.config/bspwm/hdmi_plugin.sh
+    $HOME/.config/bspwm/hdmi_plugin.sh
 {{- end}}
