@@ -28,6 +28,7 @@ Plugin 'VundleVim/Vundle.vim'
 {{- if eq .chezmoi.hostname "p180380" }}
 Plugin 'davidhalter/jedi-vim'
 {{- end }}
+Plugin 'junegunn/fzf.vim'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-dispatch'
@@ -35,7 +36,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'nvie/vim-flake8'
 Plugin 'itchyny/lightline.vim'
 Plugin 'lervag/vimtex'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'psf/black'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
@@ -178,4 +179,11 @@ let g:pandoc#completion#bib#mode = 'citeproc'
 let g:pandoc#syntax#colorcolumn = 1
 nnoremap <leader>md :Pandoc pdf -F pandoc-xnos<CR>
 nnoremap <leader>pp :StartMdPreview<CR>
+" REPL
+nnoremap <leader>rt :REPLToggle<CR>
+let g:repl_program = {
+			\	'python': ['/usr/bin/env ipython'],
+			\	'default': ['bash']
+			\	}
+
 " vim:ft=vim
