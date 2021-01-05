@@ -31,11 +31,11 @@ module-margin-right = 1
 
 font-0 = Fira Mono:style=Regular:size=12
 font-1 = unifont:fontformat=truetype:size=10:antialias=false;0
-font-2 = FontAwesome:style=Regular
+font-2 = FontAwesome
 
 {{- if eq .chezmoi.hostname "ideapad" }}
 modules-left = bspwm mpd
-modules-right = wlan bluetooth xkeyboard memory swap cpu battery alsa date time
+modules-right = wlan bluetooth xkeyboard memory swap cpu battery alsa backlight date time
 {{- end }}
 {{- if eq .chezmoi.hostname "p180380" }}
 modules-left = bspwm
