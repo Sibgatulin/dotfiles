@@ -29,6 +29,8 @@ if has("autocmd")
     autocmd BufWritePre *.py execute ':Black'
     autocmd BufWritePost *sxhkdrc !killall sxhkd; setsid sxhkd &
     autocmd BufWritePost *.config/polybar/*conf* !~/.config/polybar/launch.sh
+	" enter insert mode whenever we're in a terminal
+	autocmd TermOpen,BufWinEnter,BufEnter term://* startinsert
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -85,7 +87,7 @@ let g:ledger_default_commodity="EUR"
 let g:ledger_commodity_sep=" "
 " vim-slime
 let g:slime_target = "neovim"
-nnoremap <leader>ip :split term://ipython | startinsert
+nnoremap <leader>ip :split term://ipython<CR>
 " terminal
 tnoremap <ESC> <C-\><C-n>
 tnoremap <C-h> <C-\><C-n><C-h>
