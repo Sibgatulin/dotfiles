@@ -23,6 +23,7 @@ set directory=$XDG_CONFIG_HOME/nvim/.swp//
 set backupdir=$XDG_CONFIG_HOME/nvim/.backup//
 
 if has("autocmd")
+    filetype plugin on
     filetype plugin indent on
     autocmd BufWritePre * %s/\s\+$//e  " remove trailing whitespaces on save
     autocmd BufWritePre *.py %s/\n\n# In\[[0-9]\+]:\n\n//e  " remove IPython breadcrumbs
@@ -94,3 +95,7 @@ tnoremap <C-h> <C-\><C-n><C-h>
 tnoremap <C-j> <C-\><C-n><C-j>
 tnoremap <C-k> <C-\><C-n><C-k>
 tnoremap <C-l> <C-\><C-n><C-l>
+
+" python3 provider
+let g:python3_host_prog = "/usr/bin/python3"
+let g:slime_python_ipython = 1
