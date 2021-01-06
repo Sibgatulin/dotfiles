@@ -43,10 +43,15 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
     Plug 'jpalardy/vim-slime', {'branch': 'main'}
+    Plug 'ervandew/supertab'
 
     " language
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'deoplete-plugins/deoplete-jedi'
     Plug 'dense-analysis/ale'
+    Plug 'vim-pandoc/vim-pandoc'
+    Plug 'vim-pandoc/vim-pandoc-syntax'
 
     " python
     Plug 'psf/black'
@@ -83,6 +88,7 @@ let g:lightline = {
       \   'venv': 'virtualenv#statusline'
       \ },
       \ }
+
 " vim-ledger
 let g:ledger_default_commodity="EUR"
 let g:ledger_commodity_sep=" "
@@ -99,3 +105,13 @@ tnoremap <C-l> <C-\><C-n><C-l>
 " python3 provider
 let g:python3_host_prog = "/usr/bin/python3"
 let g:slime_python_ipython = 1
+
+" pandoc
+let g:pandoc#formatting#smart_autoformat_on_cursormoved = 1
+" let g:pandoc#completion#bib#mode = 'citeproc' " deprecated, cannot use
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#var('omni', 'input_patterns', {
+\ 'pandoc': '@\w*'
+\})
