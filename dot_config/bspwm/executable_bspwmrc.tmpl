@@ -2,15 +2,11 @@
 
 #### AUTOSTART ####
 sxhkd &
-compton &
+picom &
 udiskie &
 setxkbmap -option grp:alt_shift_toggle eu,de,gr,ru &
 feh --bg-fill {{ .bg_image }}
 xsetroot -cursor_name left_ptr
-{{- if eq .chezmoi.hostname "renat-pc" }}
-mopidy &
-spotifyd --config-path ~/.config/spotifyd/config
-{{- end }}
 
 DEC=0
 for m in $(xrandr --query | grep -w connected | cut -d" " -f1); do

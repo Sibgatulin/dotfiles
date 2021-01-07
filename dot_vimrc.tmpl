@@ -28,6 +28,7 @@ Plugin 'VundleVim/Vundle.vim'
 {{- if eq .chezmoi.hostname "p180380" }}
 Plugin 'davidhalter/jedi-vim'
 {{- end }}
+Plugin 'junegunn/fzf.vim'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-dispatch'
@@ -35,8 +36,8 @@ Plugin 'tpope/vim-commentary'
 Plugin 'nvie/vim-flake8'
 Plugin 'itchyny/lightline.vim'
 Plugin 'lervag/vimtex'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'ambv/black'
+" Plugin 'Valloric/YouCompleteMe'
+Plugin 'psf/black'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'conornewton/vim-pandoc-markdown-preview'
@@ -97,6 +98,7 @@ if has("autocmd")
     autocmd BufWritePost *sxhkdrc !killall sxhkd; setsid sxhkd &
     autocmd BufWritePost *.config/polybar/*conf* !~/.config/polybar/launch.sh
     autocmd BufWritePost *.config/compton.conf !pkill compton && compton &
+    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
     " Ledger
     au FileType ledger noremap { ?^\d<CR>
     au FileType ledger noremap } /^\d<CR>
@@ -122,13 +124,16 @@ let g:lightline = {
       \ 'colorscheme': 'seoul256',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ],
+      \             [ 'venv' ] ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
+      \   'gitbranch': 'FugitiveHead',
+      \   'venv': 'virtualenv#statusline'
       \ },
       \ }
 set laststatus=2
+let g:tex_flavor = 'latex'
 " Setting up NERDTree
 map <C-n> :NERDTreeToggle<CR>
 " Black
@@ -164,5 +169,21 @@ if !exists('g:ycm_semantic_triggers')
 endif
 let g:ycm_semantic_triggers.pandoc = ['@']
 let g:ycm_filetype_blacklist = {}
+let g:pandoc#modules#disabled = ["folding"]
+let g:pandoc#formatting#mode = "hA"
+let g:pandoc#formatting#smart_autoformat_on_cursormoved = 1
+let g:pandoc#folding#level = 2
+let g:pandoc#folding#mode = "relative"
+let g:pandoc#after#modules#enabled = ["nrrwrgn", "tablemode"]
+let g:pandoc#completion#bib#mode = 'citeproc'
+let g:pandoc#syntax#colorcolumn = 1
 nnoremap <leader>md :Pandoc pdf -F pandoc-xnos<CR>
+nnoremap <leader>pp :StartMdPreview<CR>
+" REPL
+nnoremap <leader>rt :REPLToggle<CR>
+let g:repl_program = {
+			\	'python': ['/usr/bin/env ipython'],
+			\	'default': ['bash']
+			\	}
+
 " vim:ft=vim
