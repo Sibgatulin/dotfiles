@@ -38,6 +38,9 @@ endif
 call plug#begin('~/.vim/plugged')
 
     " general
+    {{- if eq .chezmoi.hostname "p180380" }}
+    Plug '~/soft/fzf/'
+    {{- end }}
     Plug 'junegunn/fzf.vim'
     Plug 'itchyny/lightline.vim'
     Plug 'tpope/vim-commentary'

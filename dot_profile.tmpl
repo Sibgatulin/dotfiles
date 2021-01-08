@@ -12,7 +12,7 @@
 export TERMINAL={{ .terminal }}
 export EDITOR=/usr/bin/vim
 export BROWSER=/usr/bin/firefox
-export FILE_MANAGER=/usr/bin/thunar
+export FILE_MANAGER={{ .file_manager }}
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # PATH
@@ -43,10 +43,13 @@ export SUBJS_DIR=$DACH_DIR/data/subjs_all
 export PATH="$DACH_DIR/scripts/pygraz2/bin:$PATH"
 export PATH="$DACH_DIR/scripts/pygraz2/explorative:$PATH"
 export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/qa:$PATH"
+export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/sys:$PATH"
 export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/dmri:$PATH"
 export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/qmri:$PATH"
 export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/mask:$PATH"
+export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/utils:$PATH"
 export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/analysis:$PATH"
+export REG_ALADIN={{ .path_reg_aladin }}
 export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/sitecomp:$PATH"
 {{- if eq .chezmoi.hostname "ideapad" }}
 export LEDGER_DATA=$HOME/budget/

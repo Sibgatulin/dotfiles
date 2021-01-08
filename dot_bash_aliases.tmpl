@@ -4,9 +4,10 @@ alias lt='ls -altorFh'
 alias nv='nvim'
 
 alias vrc='vim ~/.vimrc'
-alias cdg='cd {{ .path_graz }}'
-alias cda='cd {{ .path_graz }}/data/subjs_all'
-alias cds='cd {{ .path_graz }}/data/subjs_all/jen-0010588044-20180119/'
+alias cdg='cd /data/projects/swi-ms-coop-graz-dfg'
+alias cda='cd /data/projects/swi-ms-coop-graz-dfg/data/subjs_all'
+alias cds='cd /data/projects/swi-ms-coop-graz-dfg/data/subjs_all/jen-0010588044-20180119/'
+alias cdbs='cd /data/projects/swi-susceptibility-mapping/data/best_swi_2020'
 alias cdbl="cd $BATCH_LOG_DIR"
 alias cdss='cd ~/Pictures/screenshots'
 alias cdt="cd {{ .path_biomed }}"
@@ -33,7 +34,7 @@ alias vck="vim ~/soft/qmk_firmware/keyboards/kyria/keymaps/sibgatulin/config.h"
 
 {{- if eq .chezmoi.hostname "ideapad" }}
 alias vhl='vim $LEDGER_FILE'
+alias pacfzf="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
 {{- end }}
 alias clf='ls -1at | egrep -v "^\.(\.)?$" | head -1 | xclip -sel clip'
 alias ccd='basename $(pwd) | xclip -sel clip'
-alias pacfzf="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
