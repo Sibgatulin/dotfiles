@@ -6,6 +6,7 @@ set colorcolumn=88
 set cursorline
 set scrolloff=5
 set spell spelllang=en_gb
+" set signcolumn=yes
 let g:mapleader=" "
 
 " using soft tabs
@@ -44,6 +45,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'jpalardy/vim-slime', {'branch': 'main'}
     Plug 'ervandew/supertab'
+    Plug 'jiangmiao/auto-pairs'
+
 
     " language
     " Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -115,3 +118,6 @@ let g:deoplete#enable_at_startup = 1
 call deoplete#custom#var('omni', 'input_patterns', {
 \ 'pandoc': '@\w*'
 \})
+
+" supertab
+let g:SuperTabDefaultCompletionType = "<c-n>" " select top-down, not bottom-up
