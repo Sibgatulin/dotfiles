@@ -10,7 +10,7 @@
 
 # BASIC
 export TERMINAL={{ .terminal }}
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/bin/nvim
 export BROWSER=/usr/bin/firefox
 export FILE_MANAGER={{ .file_manager }}
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -24,9 +24,6 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 export PATH="$HOME/.cargo/bin:$PATH"
-{{- if eq .chezmoi.hostname "ideapad" }}
-export PATH="$HOME/soft/mrtrix3/bin:$PATH"
-{{- end }}
 
 # Python
 # Marrying system wide python with vim-virtualenv
@@ -49,9 +46,9 @@ export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/qmri:$PATH"
 export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/mask:$PATH"
 export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/utils:$PATH"
 export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/analysis:$PATH"
-export REG_ALADIN={{ .path_reg_aladin }}
 export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/sitecomp:$PATH"
 {{- if eq .chezmoi.hostname "ideapad" }}
+export PATH="$HOME/soft/mrtrix3/bin:$PATH"
 export LEDGER_DATA=$HOME/budget/
 export LEDGER_FILE=$LEDGER_DATA/2021/journal.ledger
 export PATH=/usr/local/cuda-11.0/bin${PATH:+:${PATH}}
@@ -61,10 +58,11 @@ export AIRQPASS={{ .airq_pass }}
 export AIRQDATA={{ .airq_data }}
 export LD_LIBRARY_PATH="/usr/local/cuda-11.0/lib64:$LD_LIBRARY_PATH"
 export IMZML_DATA="/mnt/data/projects/spectra/data"
+export DOCKER_HOST=unix:///run/user/1000/docker.sock
 {{- end }}
 {{- if eq .chezmoi.hostname "p180380" }}
+export REG_ALADIN={{ .path_reg_aladin }}
 export MedPhysMatlabFramework=/data/projects/dev-matlab-framework/scripts/git/renat/MATLAB_MRI_Framework
 umask 002
 {{- end }}
-
 # vim:ft=sh
