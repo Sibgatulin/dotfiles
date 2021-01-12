@@ -29,6 +29,8 @@ if has("autocmd")
     autocmd BufWritePre * %s/\s\+$//e  " remove trailing whitespaces on save
     autocmd BufWritePre *.py %s/\n\n# In\[[0-9]\+]:\n\n//e  " remove IPython breadcrumbs
     autocmd BufWritePre *.py execute ':Black'
+    autocmd BufWritePre *.ledger execute ':%LedgerAlign'
+    autocmd BufWritePre journal.ledger execute ':%LedgerSort'
     autocmd BufWritePost *sxhkdrc !killall sxhkd; setsid sxhkd &
     autocmd BufWritePost *.config/polybar/*conf* !~/.config/polybar/launch.sh
 	" enter insert mode whenever we're in a terminal
@@ -124,3 +126,8 @@ call deoplete#custom#var('omni', 'input_patterns', {
 
 " supertab
 let g:SuperTabDefaultCompletionType = "<c-n>" " select top-down, not bottom-up
+function LedgerSort()
+    :%!hledger -f - print
+    :%LedgerAlign
+endfunction
+command LedgerSort call LedgerSort()
