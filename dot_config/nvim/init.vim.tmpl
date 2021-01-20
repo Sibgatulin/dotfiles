@@ -124,3 +124,7 @@ call deoplete#custom#var('omni', 'input_patterns', {
 
 " supertab
 let g:SuperTabDefaultCompletionType = "<c-n>" " select top-down, not bottom-up
+{{- if eq .chezmoi.hostname "p180380" }}
+" ale seems to slow down due to FindVirtualenv even when there's and empty .env folder next to the python script. TO DO: understand how it plays with vim-virtualenv
+let g:ale_virtualenv_dir_names = []
+{{- end }}
