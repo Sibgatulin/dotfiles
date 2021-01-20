@@ -70,8 +70,10 @@ alt + k
     $TERMINAL --name hint ~/.local/bin/show_keeb_layout.sh kyria
 alt + x
     setxkbmap -option grp:alt_shift_toggle eu,de,gr,ru &
-alt + u
-    unmount_seagate.sh
+alt + u ; s
+    unmount_external.sh Seagate
+alt + u ; e
+    unmount_external.sh WD
 alt + h
     killall sxhkd; setsid sxhkd &
 alt + p
