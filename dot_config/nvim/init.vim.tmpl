@@ -83,6 +83,7 @@ noremap <F5> :set spell! spell?<CR>
 " fzf
 nnoremap <leader>fg :GFiles<CR>
 nnoremap <leader>fr :Rg<CR>
+nnoremap <Leader>fw :Rg <C-R><C-W><CR>
 " lightline
 let g:lightline = {
       \ 'colorscheme': 'seoul256',
@@ -109,12 +110,17 @@ tnoremap <C-h> <C-\><C-n><C-h>
 tnoremap <C-j> <C-\><C-n><C-j>
 tnoremap <C-k> <C-\><C-n><C-k>
 tnoremap <C-l> <C-\><C-n><C-l>
+nnoremap <C-h> <C-w><C-h>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
 
 " python3 provider
 let g:python3_host_prog = "/usr/bin/python3"
 let g:slime_python_ipython = 1
 
 " pandoc
+let g:pandoc#formatting#mode = "hA"
 let g:pandoc#formatting#smart_autoformat_on_cursormoved = 1
 " let g:pandoc#completion#bib#mode = 'citeproc' " deprecated, cannot use
 
