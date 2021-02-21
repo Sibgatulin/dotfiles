@@ -16,6 +16,9 @@ sudo
 openssh # ssh-keygen and friends
 
 # compile & build
+autoconf # i wish i remembered
+automake # i wish i remembered
+bazel # i wish i remembered
 binutils
 fakeroot
 gcc
@@ -57,6 +60,7 @@ bat-extras-git # batgrep
 bluez # NOT SURE, have not yet made it to work reliably
 bluez-utils
 calcurse
+cheese
 direnv # so far used to tell jax where to find cuda
 fzf
 ffmpeg
@@ -70,11 +74,14 @@ gotop-bin
 hledger
 htop
 jedi-language-server # deoplete-jedi, I suppose
+kdenlive
 evince
 mopidy
 mopidy-mpd
 mopidy-spotify
+ncdu
 ncmpcpp
+ntfs-3g
 onlyoffice-bin
 pandoc
 ripgrep
@@ -104,6 +111,7 @@ lightdm # interestingly, appears needed for teamviewer to start
 lightdm-gtk-greeter # NOT SURE, but why not
 discord # ditch skype for discord
 zoom
+unzip
 
 # Xorg
 xorg-server
