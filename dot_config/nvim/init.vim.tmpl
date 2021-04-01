@@ -34,8 +34,10 @@ if has("autocmd")
     autocmd BufWritePre journal.ledger execute ':LedgerSort'
     autocmd BufWritePost *sxhkdrc !killall sxhkd; setsid sxhkd &
     autocmd BufWritePost *.config/polybar/*conf* !~/.config/polybar/launch.sh
-	" enter insert mode whenever we're in a terminal
-	autocmd TermOpen,BufWinEnter,BufEnter term://* startinsert
+	" enter insert mode whenever we're in a terminal UPD: messes with
+    " vim-pandoc. Proper solution: condition on the filetype which invoked the
+    " buffer?
+	" autocmd TermOpen,BufWinEnter,BufEnter term://* startinsert
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -51,7 +53,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'jpalardy/vim-slime', {'branch': 'main'}
     Plug 'ervandew/supertab'
-    Plug 'jiangmiao/auto-pairs'
+    " Plug 'jiangmiao/auto-pairs'
 
 
     " language
