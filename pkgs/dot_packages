@@ -1,0 +1,135 @@
+# install
+base
+efibootmgr
+grub
+iwd
+linux # could have avoided
+linux-lts
+linux-lts-headers
+linux-firmware
+
+# system
+man-db
+man-pages
+networkmanager
+sudo
+openssh # ssh-keygen and friends
+
+# compile & build
+binutils
+fakeroot
+gcc
+make
+pkgconf
+texinfo
+which
+
+# sound
+alsa-utils # amixer
+# Removing pulseaudio fixed my silent videos across the system
+apulse # needed for discord
+
+# UI
+bspwm
+chezmoi
+feh
+git-delta # NOT SURE, optional dependency for fzf.vim
+kitty
+otf-font-awesome-4
+ttf-font-awesome-4
+ttf-fira-mono
+otf-fira-mono-italic-git # cursive in kitty
+noto-fonts-emoji # still need an emoji font
+font-manager
+picom
+polybar
+rofi
+scrot
+sxhkd
+udiskie # automount?
+udisks2 # manage unmount?
+xorg-xrandr # bspwm: multiple moitors
+xorg-xsetroot # bspwmrc: coursor shape
+
+# user tools
+bat # fancy cat
+bat-extras-git # batgrep
+bluez # NOT SURE, have not yet made it to work reliably
+bluez-utils
+calcurse
+direnv # so far used to tell jax where to find cuda
+fzf
+ffmpeg
+firefox
+gthumb
+gimp
+git
+gparted
+gst-libav # totem needs to play mp4
+gotop-bin
+hledger
+htop
+jedi-language-server # deoplete-jedi, I suppose
+evince
+mopidy
+mopidy-mpd
+mopidy-spotify
+ncmpcpp
+onlyoffice-bin
+pandoc
+ripgrep
+rsync # I should use it more often
+sxiv
+signal-desktop
+texlive-latexextra # vim-pandoc required xelatex
+thunar
+tk # matplotlib, I think
+totem
+tree
+gvim
+neovim
+vim-plug # to use with neovim
+wget
+vifm
+xclip
+zathura
+zathura-djvu
+zathura-pdf-mupdf
+zathura-ps
+zotero
+zsh
+yay # AUR
+teamviewer
+lightdm # interestingly, appears needed for teamviewer to start
+lightdm-gtk-greeter # NOT SURE, but why not
+discord # ditch skype for discord
+zoom
+
+# Xorg
+xorg-server
+xorg-xinit
+xorg-xbacklight # used by sxhkd
+
+# GPUs
+acpi_call-lts # NOT SURE, to check which card is used at the moment?
+bbswitch-dkms # managing 2 cards
+bumblebee # managing 2 cards
+inetutils # NOT SURE, optirun with virtualgl needed hostname
+mesa-demos # glxinfo + glxgears
+nvidia-lts # to access nvidia
+nvidia-settings # NOT SURE, just in case
+primus # NOT SURE, as an alternative bridge for optirun
+xf86-video-intel # to use integrated GPU
+
+# precaution
+aic94xx-firmware # AUR
+wd719x-firmware # AUR
+
+# PROJECTS?
+cuda
+cudnn
+python-jedi
+python-pip
+python-virtualenvwrapper
+docker # to run mriqc
+fuse-overlayfs # to run docker rootless (also explains /etc/sub[ug]id and /etc/sysctl.d/unprivileged.conf

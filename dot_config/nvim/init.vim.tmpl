@@ -29,6 +29,8 @@ if has("autocmd")
     autocmd BufWritePre * %s/\s\+$//e  " remove trailing whitespaces on save
     autocmd BufWritePre *.py %s/\n\n# In\[[0-9]\+]:\n\n//e  " remove IPython breadcrumbs
     autocmd BufWritePre *.py execute ':Black'
+    autocmd BufWritePre *.ledger execute ':%LedgerAlign'
+    autocmd BufWritePre journal.ledger execute ':LedgerSort'
     autocmd BufWritePost *sxhkdrc !killall sxhkd; setsid sxhkd &
     autocmd BufWritePost *.config/polybar/*conf* !~/.config/polybar/launch.sh
 	" enter insert mode whenever we're in a terminal
@@ -128,3 +130,8 @@ let g:SuperTabDefaultCompletionType = "<c-n>" " select top-down, not bottom-up
 " ale seems to slow down due to FindVirtualenv even when there's and empty .env folder next to the python script. TO DO: understand how it plays with vim-virtualenv
 let g:ale_virtualenv_dir_names = []
 {{- end }}
+function LedgerSort()
+    :%!hledger -f - print
+    :%LedgerAlign
+endfunction
+command LedgerSort call LedgerSort()
