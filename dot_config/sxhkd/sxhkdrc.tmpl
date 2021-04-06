@@ -73,10 +73,10 @@ alt + k
     $TERMINAL --name hint ~/.local/bin/show_keeb_layout.sh kyria
 alt + x
     setxkbmap -option grp:alt_shift_toggle eu,de,gr,ru &
-alt + u ; s
-    unmount_external.sh Seagate
-alt + u ; e
-    unmount_external.sh WD
+alt + u ; {s,e}
+    unmount_external.sh --vend {Seagate,WD}
+alt + u ; a
+    unmount_external.sh --all
 alt + h
     killall sxhkd; setsid sxhkd &
 alt + p
@@ -92,6 +92,8 @@ alt + t ; m
     copy_ts_id.sh mom
 alt + t ; d
     copy_ts_id.sh dad
+alt + d
+    apulse discord
 alt + m
     $TERMINAL --name music ncmpcpp
 alt + r

@@ -8,6 +8,7 @@ set scrolloff=5
 set spell spelllang=en_gb
 " set signcolumn=yes
 let g:mapleader=" "
+let g:maplocalleader=" "
 
 " using soft tabs
 set expandtab
@@ -33,8 +34,10 @@ if has("autocmd")
     autocmd BufWritePre journal.ledger execute ':LedgerSort'
     autocmd BufWritePost *sxhkdrc !killall sxhkd; setsid sxhkd &
     autocmd BufWritePost *.config/polybar/*conf* !~/.config/polybar/launch.sh
-	" enter insert mode whenever we're in a terminal
-	autocmd TermOpen,BufWinEnter,BufEnter term://* startinsert
+	" enter insert mode whenever we're in a terminal UPD: messes with
+    " vim-pandoc. Proper solution: condition on the filetype which invoked the
+    " buffer?
+	" autocmd TermOpen,BufWinEnter,BufEnter term://* startinsert
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -50,7 +53,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'jpalardy/vim-slime', {'branch': 'main'}
     Plug 'ervandew/supertab'
-    Plug 'jiangmiao/auto-pairs'
+    " Plug 'jiangmiao/auto-pairs'
 
 
     " language
@@ -72,10 +75,11 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " Mappings
-nnoremap <C-h> <C-w><C-h>
-nnoremap <C-j> <C-w><C-j>
-nnoremap <C-k> <C-w><C-k>
-nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <cr> <c-w>w
 " Copy full path to system register
 nmap <leader>cfp :let @+ = expand("%:p")<CR>
 noremap <F4> :set hlsearch! hlsearch?<CR>
@@ -83,6 +87,7 @@ noremap <F5> :set spell! spell?<CR>
 " fzf
 nnoremap <leader>fg :GFiles<CR>
 nnoremap <leader>fr :Rg<CR>
+nnoremap <Leader>fw :Rg <C-R><C-W><CR>
 " lightline
 let g:lightline = {
       \ 'colorscheme': 'seoul256',
@@ -115,6 +120,7 @@ let g:python3_host_prog = "/usr/bin/python3"
 let g:slime_python_ipython = 1
 
 " pandoc
+let g:pandoc#formatting#mode = "hA"
 let g:pandoc#formatting#smart_autoformat_on_cursormoved = 1
 " let g:pandoc#completion#bib#mode = 'citeproc' " deprecated, cannot use
 
