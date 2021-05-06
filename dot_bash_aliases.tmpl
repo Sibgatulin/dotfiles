@@ -23,7 +23,8 @@ alias jlp='jupyter lab --no-browser --port'
 alias ev=evince
 alias za=zathura
 alias cz=chezmoi
-alias sx="sxiv -o" # never know when to expect smth interesting
+alias sxiv="sxiv -o" # never know when to expect smth interesting
+alias sx="sxiv"
 
 
 alias cdq="cd ~/soft/qmk_firmware"
@@ -36,6 +37,7 @@ alias vck="vim ~/soft/qmk_firmware/keyboards/kyria/keymaps/sibgatulin/config.h"
 alias vhl='vim $LEDGER_FILE'
 alias pacfzf="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
 alias wo='workon'
+alias cdq='cd /data/projects/airq/'
 {{- end }}
 alias clf='ls -1at | egrep -v "^\.(\.)?$" | head -1 | xclip -sel clip'
 alias ccd='basename $(pwd) | xclip -sel clip'
