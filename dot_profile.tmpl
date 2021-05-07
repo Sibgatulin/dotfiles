@@ -47,6 +47,7 @@ export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/mask:$PATH"
 export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/utils:$PATH"
 export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/analysis:$PATH"
 export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/sitecomp:$PATH"
+export XLA_FLAGS=--xla_gpu_cuda_data_dir={{ .cuda4jax }}
 {{- if eq .chezmoi.hostname "ideapad" }}
 export MMUTE_DATA="/data/projects/ma-maggioni/data"
 export PATH="$HOME/soft/mrtrix3/bin:$PATH"
