@@ -54,11 +54,13 @@ export LEDGER_DATA=$HOME/budget/
 export LEDGER_FILE=$LEDGER_DATA/2021/journal.ledger
 export REG_ALADIN=
 export AIRQIP={{ .airq_ip }}
+export AIRQMDNS={{ .airq_mdns }}
 export AIRQPASS={{ .airq_pass }}
 export AIRQDATA={{ .airq_data }}
 export LD_LIBRARY_PATH="/usr/local/cuda-11.0/lib64:$LD_LIBRARY_PATH"
 export IMZML_DATA="/mnt/data/projects/spectra/data"
 export DOCKER_HOST=unix:///run/user/1000/docker.sock
+export XLA_FLAGS=--xla_gpu_cuda_data_dir=/opt/cuda
 {{- end }}
 {{- if eq .chezmoi.hostname "p180380" }}
 export REG_ALADIN={{ .path_reg_aladin }}
