@@ -38,7 +38,15 @@ if has("autocmd")
     " vim-pandoc. Proper solution: condition on the filetype which invoked the
     " buffer?
 	" autocmd TermOpen,BufWinEnter,BufEnter term://* startinsert
-endif
+
+    " Ledger
+    autocmd FileType ledger noremap { ?^\d<CR>
+    autocmd FileType ledger noremap } /^\d<CR>
+    autocmd FileType ledger nnoremap <leader>rc :Shell hledger bal assets liabilities -2 -C -f %<CR>:resize 6<CR>
+    autocmd FileType ledger nnoremap <leader>ts :call ledger#transaction_state_toggle(line('.'), ' *')<CR>
+    " for the following the cursor must be above the number strictly
+    autocmd FileType ledger nnoremap <leader>aa :call ledger#align_amount_at_cursor()<CR>
+    endif
 
 call plug#begin('~/.vim/plugged')
 
@@ -105,6 +113,7 @@ let g:lightline = {
 " vim-ledger
 let g:ledger_default_commodity="EUR"
 let g:ledger_commodity_sep=" "
+let g:ledger_commodity_before=0
 " vim-slime
 let g:slime_target = "neovim"
 nnoremap <leader>ip :split term://ipython<CR>
@@ -141,3 +150,20 @@ function LedgerSort()
     :%LedgerAlign
 endfunction
 command LedgerSort call LedgerSort()
+" Execute a command in a scratch buffer
+command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
+function! s:RunShellCommand(cmdline)
+  echo a:cmdline
+  let expanded_cmdline = a:cmdline
+  for part in split(a:cmdline, ' ')
+     if part[0] =~ '\v[%#<]'
+        let expanded_part = fnameescape(expand(part))
+        let expanded_cmdline = substitute(expanded_cmdline, part, expanded_part, '')
+     endif
+  endfor
+  botright new
+  setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
+  execute '$read !'. expanded_cmdline
+  setlocal nomodifiable
+  1
+endfunction
