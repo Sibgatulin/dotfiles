@@ -87,7 +87,7 @@ Print
 {{- if eq .chezmoi.hostname "ideapad" }}
 # Force xrandr to use HDMI and restart bspdm
 super + shift + d
-    $HOME/.config/bspwm/hdmi_plugin.sh
+	mons -e right && bspc wm -r
 alt + t ; m
     copy_ts_id.sh mom
 alt + t ; d
