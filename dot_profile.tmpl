@@ -48,6 +48,7 @@ export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/utils:$PATH"
 export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/analysis:$PATH"
 export PATH="$DACH_DIR/scripts/pygraz2/pygraz2/sitecomp:$PATH"
 export XLA_FLAGS=--xla_gpu_cuda_data_dir={{ .cuda4jax }}
+export JULIA_CUDA_USE_BINARYBUILDER=false
 {{- if eq .chezmoi.hostname "ideapad" }}
 export MMUTE_DATA="/data/projects/ma-maggioni/data"
 export PATH="$HOME/soft/mrtrix3/bin:$PATH"
@@ -61,7 +62,8 @@ export AIRQDATA={{ .airq_data }}
 export LD_LIBRARY_PATH="/usr/local/cuda-11.0/lib64:$LD_LIBRARY_PATH"
 export IMZML_DATA="/mnt/data/projects/spectra/data"
 export DOCKER_HOST=unix:///run/user/1000/docker.sock
-export XLA_FLAGS=--xla_gpu_cuda_data_dir=/opt/cuda
+export PATH="$PATH:/data/projects/airq/xtensa-esp32-elf/bin"
+export IDF_PATH="/data/projects/airq/pycom-esp-idf"
 {{- end }}
 {{- if eq .chezmoi.hostname "p180380" }}
 export REG_ALADIN={{ .path_reg_aladin }}
