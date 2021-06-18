@@ -16,6 +16,9 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
+set exrc
+set secure
+
 set backup		" keep a backup file (restore to previous version)
 if has('persistent_undo')
     set undofile	" keep an undo file (undo changes after closing)
@@ -27,9 +30,15 @@ set backupdir=$XDG_CONFIG_HOME/nvim/.backup//
 if has("autocmd")
     filetype plugin on
     filetype plugin indent on
-    autocmd BufWritePre * %s/\s\+$//e  " remove trailing whitespaces on save
-    autocmd BufWritePre *.py %s/\n\n# In\[[0-9]\+]:\n\n//e  " remove IPython breadcrumbs
-    autocmd BufWritePre *.py execute ':Black'
+    augroup TrailingSpaces
+        autocmd!
+        autocmd BufWritePre * %s/\s\+$//e  " remove trailing whitespaces on save
+    augroup END
+    augroup PythonAutoformat
+        autocmd!
+        autocmd BufWritePre *.py %s/\n\n# In\[[0-9]\+]:\n\n//e  " rm IPython breadcrumbs
+        autocmd BufWritePre *.py execute ':Black'
+    augroup END
     autocmd BufWritePre *.ledger execute ':%LedgerAlign'
     autocmd BufWritePre journal.ledger execute ':LedgerSort'
     autocmd BufWritePost *sxhkdrc !killall sxhkd; setsid sxhkd &
