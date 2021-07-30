@@ -11,7 +11,7 @@ query_usb() {
 }
 unmount_by_name() {
     ID=$1
-    BLOCK=$(echo /dev/${ID}1)
+    BLOCK="/dev/${ID}1"
     udisksctl unmount -b $BLOCK
     udisksctl power-off -b $BLOCK
 }
