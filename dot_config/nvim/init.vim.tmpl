@@ -55,6 +55,7 @@ if has("autocmd")
     autocmd FileType ledger nnoremap <leader>ts :call ledger#transaction_state_toggle(line('.'), ' *')<CR>
     " for the following the cursor must be above the number strictly
     autocmd FileType ledger nnoremap <leader>aa :call ledger#align_amount_at_cursor()<CR>
+    autocmd BufNewFile,BufRead *.tikz set filetype=tex
     endif
 
 call plug#begin('~/.vim/plugged')
