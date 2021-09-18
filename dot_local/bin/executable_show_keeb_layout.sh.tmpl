@@ -2,11 +2,11 @@
 
 case "$1" in
         iris)
-            LAYOUT_CODE={{ .chezmoi.homedir }}/soft/qmk_firmware/keyboards/keebio/iris/keymaps/sibgatulin/keymap.c
+            LAYOUT_CODE=/home/renat/soft/qmk_firmware/keyboards/keebio/iris/keymaps/sibgatulin/keymap.c
             tail -n 56 $LAYOUT_CODE | head -41 | less
             ;;
         kyria)
-            LAYOUT_CODE={{ .chezmoi.homedir }}/soft/qmk_firmware/keyboards/kyria/keymaps/sibgatulin/keymap.c
+            LAYOUT_CODE=/home/renat/soft/qmk_firmware/keyboards/kyria/keymaps/sibgatulin/keymap.c
             tail -n 42 $LAYOUT_CODE | head -35 | less
             ;;
         *)
