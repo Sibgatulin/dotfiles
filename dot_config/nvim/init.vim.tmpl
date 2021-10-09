@@ -23,9 +23,9 @@ set backup		" keep a backup file (restore to previous version)
 if has('persistent_undo')
     set undofile	" keep an undo file (undo changes after closing)
 endif
-set undodir=$XDG_CONFIG_HOME/nvim/.undo//
-set directory=$XDG_CONFIG_HOME/nvim/.swp//
-set backupdir=$XDG_CONFIG_HOME/nvim/.backup//
+set undodir=~/.config/nvim/.undo//
+set directory=~/.config/nvim/.swp//
+set backupdir=~/.config/nvim/.backup//
 
 if has("autocmd")
     filetype plugin on
@@ -75,7 +75,6 @@ call plug#begin('~/.vim/plugged')
 
 
     " language
-    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'deoplete-plugins/deoplete-jedi'
     Plug 'dense-analysis/ale'
