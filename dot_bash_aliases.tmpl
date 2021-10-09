@@ -20,8 +20,8 @@ alias ssh='kitty +kitten ssh'
 alias c37='conda activate rs_py37'
 alias c39='conda activate rs_py39'
 alias jlp='jupyter lab --no-browser --port'
-{{- end }}
 alias ev=evince
+{{- end }}
 alias za=zathura
 alias cz=chezmoi
 alias sxiv="sxiv -o" # never know when to expect smth interesting
@@ -40,5 +40,3 @@ alias pacfzf="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro s
 alias wo='workon'
 alias cdq='cd /data/projects/airq/'
 {{- end }}
-alias clf='ls -1at | egrep -v "^\.(\.)?$" | head -1 | xclip -sel clip'
-alias ccd='basename $(pwd) | xclip -sel clip'
