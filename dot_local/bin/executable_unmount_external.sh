@@ -6,7 +6,7 @@ query_vendor() {
     echo $ID
 }
 query_usb() {
-    ID=$(lsblk -S | awk '$8 == "usb"  {print $1}')
+    ID=$(lsblk -S | awk '/usb/  {print $1}')
     echo $ID
 }
 unmount_by_name() {
