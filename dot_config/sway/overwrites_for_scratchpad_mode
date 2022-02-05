@@ -1,0 +1,5 @@
+# Maybe this shortcut should just be set up to smth identical on both keyboards...
+$unbindsym $mod+Shift+minus
+$unbindsym $mod+minus
+bindsym $mod+Shift+minus move scratchpad, exec "pkill -RTMIN+7 waybar"
+bindsym $mod+minus scratchpad show, exec "pkill -RTMIN+7 waybar"
