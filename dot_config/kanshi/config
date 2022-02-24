@@ -1,0 +1,14 @@
+profile corant {
+    output eDP-1 position 0,0
+    output 'Unknown HP 27m 1CR1110ZCM' position 1920,0
+}
+
+profile multihead {
+    output HDMI-A-1 position 0,0
+    output eDP-1 position 2560,0
+}
+
+profile singlehead {
+    output eDP-1 position 0,0
+}
+
