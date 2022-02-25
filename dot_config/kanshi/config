@@ -1,10 +1,10 @@
 profile corant {
     output eDP-1 position 0,0
-    output 'Unknown HP 27m 1CR1110ZCM' position 1920,0
+    output "Unknown HP 27m 1CR1110ZCM" position 1920,0
 }
 
 profile multihead {
-    output HDMI-A-1 position 0,0
+    output "Lenovo Group Limited LEN L27q-30 U162N76F" position 0,0
     output eDP-1 position 2560,0
 }
 
