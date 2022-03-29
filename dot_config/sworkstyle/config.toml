@@ -18,8 +18,9 @@
 
 [matching]
 'Zotero' = '𝐙'
-'/^nvim ?\w*/' = ''
-'/^nv ?\w*/' = ''
+'/^nvim ?\S*$/' = ''
+'/^nv ?\S*$/' = ''
+'/^nv -d \S+( \S+)?$/' = ''
 '/ncmpcpp/' = ''
 'ncmpcpp' = '' # assuming that it was started with ``kitty --class ncmpcpp ncmpcpp``
 "kitty" = ""
