@@ -67,14 +67,15 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf.vim'
     Plug 'itchyny/lightline.vim'
     Plug 'tpope/vim-commentary'
-    Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
-    Plug 'jpalardy/vim-slime', {'branch': 'main'}
+    Plug 'tpope/vim-fugitive'
     Plug 'ervandew/supertab'
     " Plug 'jiangmiao/auto-pairs'
 
 
     " language
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'lewis6991/spellsitter.nvim'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'deoplete-plugins/deoplete-jedi'
     Plug 'dense-analysis/ale'
@@ -178,3 +179,10 @@ function! s:RunShellCommand(cmdline)
   setlocal nomodifiable
   1
 endfunction
+lua << EOF
+require('treesitter')
+require('spellsitter').setup {
+  -- Whether enabled, can be a list of filetypes, e.g. {'python', 'lua'}
+  enable = true,
+}
+EOF
