@@ -1,0 +1,7 @@
+require("config")
+require("keybindings")
+require("packages")
+require("lsp_config")
+require("completion")
+require("treesitter")
+require("nvim_tree")
