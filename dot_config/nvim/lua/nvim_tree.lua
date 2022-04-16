@@ -1,4 +1,4 @@
-require('nvim-tree').setup { -- BEGIN_DEFAULT_OPTS
+require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
   disable_netrw = true,
   -- hijack_cursor = true, -- not sure if important
   -- sort_by = "name", -- "modification_time" possible
@@ -13,7 +13,7 @@ require('nvim-tree').setup { -- BEGIN_DEFAULT_OPTS
     mappings = {
       custom_only = false,
       list = {
-	{ key = { "l", "<CR>" }, action = "edit" },
+        { key = { "l", "<CR>" }, action = "edit" },
         { key = "h", action = "close_node" },
         { key = "v", action = "vsplit" },
         { key = "t", action = "tabnew" },
@@ -71,4 +71,4 @@ require('nvim-tree').setup { -- BEGIN_DEFAULT_OPTS
       },
     },
   },
-}
+})
