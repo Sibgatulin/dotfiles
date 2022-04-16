@@ -8,8 +8,22 @@ vim.cmd [[
 
 require("packer").startup(function()
   use "wbthomason/packer.nvim"
+
+  -- Vim specific
+  use {
+   'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icon
+    },
+  }
   use "sainnhe/gruvbox-material"
-  use "neovim/nvim-lspconfig"
+  use "folke/which-key.nvim"
+
+  -- Languages and syntax
+  use {
+    "neovim/nvim-lspconfig",
+    'williamboman/nvim-lsp-installer'
+  }
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/nvim-cmp"
   use 'hrsh7th/cmp-buffer'
@@ -25,14 +39,17 @@ require("packer").startup(function()
       require('spellsitter').setup()
     end
   }
+
+  -- Utilities
+  use 'junegunn/fzf.vim'
   use 'tpope/vim-commentary'
   use 'tpope/vim-fugitive'
+
+  -- Python
   use 'psf/black'
-  use {
-   'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons', -- optional, for file icon
-    },
-  }
+
+  -- Specific files
+  use 'ledger/vim-ledger'
+
 end)
 
