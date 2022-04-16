@@ -6,7 +6,7 @@ vim.g.mapleader = " "
 keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)
 keymap("v", "p", '"_dP', opts) -- keep yanked in the register after pasting
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
--- keymap("n", "<c-n>", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<leader>fr", ":Rg<cr>", opts)
 
 -- Better window navigation
 keymap("n", "<c-h>", "<c-w>h", opts)
