@@ -3,7 +3,6 @@ vim.g.undofile = true
 vim.g.undodir = "~/.config/nvim/.undo/"
 vim.g.directory = "~/.config/nvim/.swp/"
 vim.g.backupdir = "~/.config/nvim/.backup/"
-vim.g.laststatus = 3
 
 vim.g.termguicolors = true
 vim.cmd("colorscheme gruvbox-material")
