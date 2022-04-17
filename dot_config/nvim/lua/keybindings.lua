@@ -4,7 +4,7 @@ vim.g.mapleader = " "
 
 keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)
 keymap("v", "p", '"_dP', opts) -- keep yanked in the register after pasting
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+-- keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 -- Better window navigation
 keymap("n", "<c-h>", "<c-w>h", opts)
@@ -22,9 +22,15 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 local wk = require("which-key")
 
 wk.register({
+  e = {
+    name = "NvimTree",
+    t = { "<cmd>NvimTreeToggle<cr>", "Toggle" },
+    f = { "<cmd>NvimTreeFocus<cr>", "Focus" },
+  },
   f = {
     name = "fzf",
     r = { "<cmd>Rg<cr>", "Rg" },
+    f = { "<cmd>Files<cr>", "Files" },
     b = { "<cmd>Buffers<cr>", "Buffers" },
   },
   t = {
