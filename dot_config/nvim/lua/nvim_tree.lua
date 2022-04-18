@@ -1,4 +1,4 @@
-require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
+require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
   disable_netrw = true,
   -- hijack_cursor = true, -- not sure if important
   -- sort_by = "name", -- "modification_time" possible
@@ -71,4 +71,4 @@ require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
       },
     },
   },
-})
+}

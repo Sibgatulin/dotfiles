@@ -1,6 +1,6 @@
-local gps = require("nvim-gps")
+local gps = require "nvim-gps"
 
-require("lualine").setup({
+require("lualine").setup {
   options = { globalstatus = true },
   sections = {
     lualine_b = { "branch", "diff" },
@@ -25,4 +25,4 @@ require("lualine").setup({
       "filetype",
     },
   },
-})
+}

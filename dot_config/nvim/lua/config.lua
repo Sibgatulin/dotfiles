@@ -1,11 +1,13 @@
 vim.g.backup = true
 vim.g.undofile = true
+vim.g.undolevels = 1000
 vim.g.undodir = "~/.config/nvim/.undo/"
 vim.g.directory = "~/.config/nvim/.swp/"
 vim.g.backupdir = "~/.config/nvim/.backup/"
+vim.g.python3_host_prog = "/usr/bin/python"
 
 vim.g.termguicolors = true
-vim.cmd("colorscheme gruvbox-material")
+vim.cmd "colorscheme gruvbox-material"
 
 vim.o.expandtab = true
 vim.o.tabstop = 2

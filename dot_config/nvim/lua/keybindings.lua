@@ -19,7 +19,7 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- More leader based mappings
-local wk = require("which-key")
+local wk = require "which-key"
 
 wk.register({
   e = {
@@ -38,5 +38,6 @@ wk.register({
     w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "workspace" },
     d = { "<cmd>TroubleToggle document_diagnostics<cr>", "document" },
     t = { "<cmd>TroubleToggle<cr>", "toggle" },
+    c = { "<cmd>TodoTrouble<cr>", "todo-comments" },
   },
 }, { prefix = "<leader>" })

@@ -1,4 +1,4 @@
-require("nvim-treesitter.configs").setup({
+require("nvim-treesitter.configs").setup {
   ensure_installed = {
     "python",
     "lua",
@@ -18,4 +18,7 @@ require("nvim-treesitter.configs").setup({
   rainbow = {
     enable = true,
   },
-})
+  context_commentstring = {
+    enable = true,
+  },
+}

@@ -28,24 +28,24 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 end
 
-local nvim_lsp = require("lspconfig")
+local nvim_lsp = require "lspconfig"
 
 local servers = { "pyright", "jedi_language_server", "sumneko_lua", "bashls", "jsonls" }
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 for _, lsp in pairs(servers) do
-  nvim_lsp[lsp].setup({
+  nvim_lsp[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
     flags = {
       -- This will be the default in neovim 0.7+
       debounce_text_changes = 150,
     },
-  })
+  }
 end
 
-nvim_lsp.sumneko_lua.setup({
+nvim_lsp.sumneko_lua.setup {
   settings = {
     Lua = {
       diagnostics = {
@@ -60,7 +60,7 @@ nvim_lsp.sumneko_lua.setup({
       telemetry = { enable = false },
     },
   },
-})
+}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
   virtual_text = false,
