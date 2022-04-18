@@ -1,22 +1,26 @@
-local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true }
+vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 vim.g.mapleader = " "
 
-keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)
-keymap("v", "p", '"_dP', opts) -- keep yanked in the register after pasting
--- keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+vim.keymap.set("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)
+vim.keymap.set("v", "p", '"_dP', opts) -- keep yanked in the register after pasting
+vim.keymap.set("n", "<leader>c", "<cmd>TSContextToggle<cr>", opts)
+
+-- Remap for dealing with word wrap -- the best!
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Better window navigation
-keymap("n", "<c-h>", "<c-w>h", opts)
-keymap("n", "<c-j>", "<c-w>j", opts)
-keymap("n", "<c-k>", "<c-w>k", opts)
-keymap("n", "<c-l>", "<c-w>l", opts)
+vim.keymap.set("n", "<c-h>", "<c-w>h", opts)
+vim.keymap.set("n", "<c-j>", "<c-w>j", opts)
+vim.keymap.set("n", "<c-k>", "<c-w>k", opts)
+vim.keymap.set("n", "<c-l>", "<c-w>l", opts)
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+vim.keymap.set("n", "<C-Up>", ":resize -2<CR>", opts)
+vim.keymap.set("n", "<C-Down>", ":resize +2<CR>", opts)
+vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- More leader based mappings
 local wk = require "which-key"
