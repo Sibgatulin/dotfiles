@@ -19,7 +19,7 @@ local on_attach = function(client, bufnr)
   -- vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
   -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-  vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+  vim.keymap.set("n", "KK", vim.lsp.buf.signature_help, opts)
   vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
   vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 end
@@ -28,7 +28,7 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
-local servers = { "pyright", "jedi_language_server", "bashls", "jsonls" }
+local servers = { "jedi_language_server", "bashls", "jsonls" }
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
@@ -38,6 +38,18 @@ for _, lsp in pairs(servers) do
     capabilities = capabilities,
   }
 end
+
+nvim_lsp["pyright"].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    python = {
+      analysis = {
+        typeCheckingMode = "off", -- want to find a way to toggle it somehow...
+      },
+    },
+  },
+}
 
 -- Example custom server
 -- Make runtime files discoverable to the server
@@ -59,7 +71,7 @@ nvim_lsp.sumneko_lua.setup {
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = { "vim" },
+        globals = { "vim", "use" },
       },
       workspace = {
         -- Make the server aware of Neovim runtime files
