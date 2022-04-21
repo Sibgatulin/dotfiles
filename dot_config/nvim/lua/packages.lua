@@ -111,6 +111,13 @@ require("packer").startup(function()
 
   -- Python
   use "psf/black"
+  use {
+    "luk400/vim-jukit",
+    tag = "v0.1.0",
+    config = function()
+      vim.g.jukit_enable_text_syntax_hl = "" -- otherwise code is misinterpreted as text
+    end,
+  }
 
   -- Specific files
   use "ledger/vim-ledger"
