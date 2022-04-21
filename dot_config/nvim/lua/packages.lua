@@ -35,6 +35,7 @@ require("packer").startup(function()
     requires = { "nvim-lua/plenary.nvim" },
   }
   use "JoosepAlviste/nvim-ts-context-commentstring"
+  use "ludovicchabant/vim-gutentags"
 
   -- Vim specific
   use {
@@ -43,7 +44,8 @@ require("packer").startup(function()
       "kyazdani42/nvim-web-devicons", -- optional, for file icon
     },
   }
-  use "sainnhe/gruvbox-material"
+  use "ellisonleao/gruvbox.nvim"
+
   use "folke/which-key.nvim"
   use {
     "lukas-reineke/indent-blankline.nvim",
@@ -55,7 +57,7 @@ require("packer").startup(function()
     end,
   }
   -- cannot decide if to use this or nvim-gps
-  use "romgrk/nvim-treesitter-context"
+  use "lewis6991/nvim-treesitter-context"
   use {
     "SmiteshP/nvim-gps",
     config = function()
@@ -89,8 +91,22 @@ require("packer").startup(function()
 
   -- Utilities
   use "junegunn/fzf.vim"
-  use "tpope/vim-commentary"
   use "tpope/vim-fugitive"
+  -- let's see if I want it:
+  use {
+    "lewis6991/gitsigns.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("gitsigns").setup()
+    end,
+  }
+  use "rhysd/committia.vim"
+  use {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup()
+    end,
+  } -- "gc" to comment visual regions/lines
 
   -- Python
   use "psf/black"

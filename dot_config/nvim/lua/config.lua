@@ -7,7 +7,7 @@ vim.g.backupdir = "~/.config/nvim/.backup/"
 vim.g.python3_host_prog = "/usr/bin/python"
 
 vim.g.termguicolors = true
-vim.cmd [[colorscheme gruvbox-material]]
+vim.cmd [[colorscheme gruvbox]] -- because diff looks awful w/gruvbox-material
 
 vim.o.expandtab = true
 vim.o.tabstop = 2
