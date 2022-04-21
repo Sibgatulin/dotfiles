@@ -1,12 +1,13 @@
-require("config")
-require("keybindings")
-require("packages")
-require("lsp_config")
-require("completion")
-require("treesitter")
-require("nvim_tree")
-require("autocommands")
-require("ledger")
-require("which_key")
-require("lua_line")
-require("null_ls")
+require "config"
+require "keybindings"
+require "packages"
+require "lsp_config"
+require "completion"
+require "treesitter"
+require "nvim_tree"
+require "autocommands"
+require "ledger"
+require "which_key"
+require "lua_line"
+require "null_ls"
+require "bar"
