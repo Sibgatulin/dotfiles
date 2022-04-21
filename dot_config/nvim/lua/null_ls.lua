@@ -1,15 +1,18 @@
 local nls = require "null-ls"
 local formatting = nls.builtins.formatting
+local diagnostics = nls.builtins.diagnostics
 
-sources = {
+local sources = {
   formatting.stylua.with {
     extra_args = { "--config-path", vim.fn.expand "~/.config/stylua.toml" },
   },
   formatting.fixjson,
   formatting.isort,
-  -- formatting.black, -- cannot make it work in a virtual environment
   formatting.shfmt,
+
+  diagnostics.markdownlint,
 }
+-- formatting.black, -- cannot make it work in a virtual environment
 
 nls.setup {
   sources = sources,

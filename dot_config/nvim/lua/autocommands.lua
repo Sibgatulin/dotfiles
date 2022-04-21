@@ -5,11 +5,11 @@ vim.cmd [[
   augroup end
   augroup TrailingSpaces
     autocmd!
-    autocmd BufWritePre * %s/\s\+$//e  " remove trailing whitespaces on save
+    autocmd BufWritePre * %s/\s\+$//e
   augroup end
   augroup PythonAutoformat
     autocmd!
-    autocmd BufWritePre *.py %s/\n\n# In\[[0-9]\+]:\n\n//e  " rm IPython breadcrumbs
-    autocmd BufWritePre *.py execute ':Black' " meant to be superceded by null_ls
+    autocmd BufWritePre *.py %s/\n\n# In\[[0-9]\+]:\n\n//e
+    autocmd BufWritePre *.py execute ':Black'
   augroup end
 ]]
