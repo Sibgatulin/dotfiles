@@ -72,6 +72,7 @@ require("packer").startup(function()
   --   end,
   -- })
   use "ggandor/lightspeed.nvim"
+  use "romgrk/barbar.nvim"
   -- Lua
   use {
     "folke/todo-comments.nvim",
