@@ -113,4 +113,13 @@ require("packer").startup(function()
 
   -- Specific files
   use "ledger/vim-ledger"
+  use {
+    "vim-pandoc/vim-pandoc",
+    config = function()
+      vim.cmd [[
+        let g:pandoc#formatting#mode = "hA"
+        let g:pandoc#formatting#smart_autoformat_on_cursormoved = 1
+      ]]
+    end,
+  }
 end)

@@ -44,4 +44,9 @@ wk.register({
     t = { "<cmd>TroubleToggle<cr>", "toggle" },
     c = { "<cmd>TodoTrouble<cr>", "todo-comments" },
   },
+  p = {
+    name = "pandoc",
+    d = { "<cmd>Pandoc pdf -F pandoc-crossref --citeproc<CR>", "compile" },
+    D = { "<cmd>Pandoc! pdf -F pandoc-crossref --citeproc<CR>", "compile & open" },
+  },
 }, { prefix = "<leader>" })
