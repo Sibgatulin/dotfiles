@@ -1,0 +1,5 @@
+mode --pango_markup $mode_screenshot {
+  $unbindsym Escape
+  bindsym Escape mode "default"
+}
+

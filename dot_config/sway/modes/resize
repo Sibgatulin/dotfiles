@@ -1,0 +1,12 @@
+mode --pango_markup $mode_resize {
+    ## Resize // Window Gaps // + - ##
+    $unbindsym minus
+    $unbindsym plus
+    $unbindsym Escape
+
+    bindsym minus gaps inner current minus 5px
+    bindsym plus gaps inner current plus 5px
+
+    # Return to default mode
+    bindsym Escape mode "default"
+}

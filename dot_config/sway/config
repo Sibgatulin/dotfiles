@@ -23,14 +23,13 @@ include /etc/sway/outputs/*
 # enable modes
 include /etc/sway/modes/*
 # want to fix what's undesirable, but somehow cannot...
-include $HOME/.config/sway/overwrites_for_default_mode
-include $HOME/.config/sway/overwrites_for_scratchpad_mode
+include $HOME/.config/sway/modes/*
 
 # only enable this if every app you use is compatible with wayland
 # xwayland disable
 
 # include additional configs e.g. to autostart applications
-include /etc/sway/config.d/*
+include /etc/sway/config.d/*.conf
 
 # user config
 include $HOME/.config/sway/config.d/*.conf

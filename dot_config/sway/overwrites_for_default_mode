@@ -1,4 +1,0 @@
-$unbindsym $mod+Return
-$unbindsym $mod+Shift+Return
-$bindsym $mod+Return exec $term
-$bindsym $mod+Shift+Return exec $browser
