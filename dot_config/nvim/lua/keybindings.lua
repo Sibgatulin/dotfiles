@@ -5,6 +5,7 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)
 vim.keymap.set("v", "p", '"_dP', opts) -- keep yanked in the register after pasting
 vim.keymap.set("n", "<leader>c", "<cmd>TSContextToggle<cr>", opts)
+vim.keymap.set("n", "<leader>cfp", "<cmd>let @+ = expand('%:p')<cr>", opts)
 
 -- Remap for dealing with word wrap -- the best!
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })

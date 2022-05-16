@@ -3,5 +3,6 @@ require("which-key").setup {
     spelling = {
       enabled = true,
     },
+    registers = false, -- the popup flickers on "+
   },
 }
