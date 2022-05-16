@@ -128,4 +128,15 @@ require("packer").startup(function()
     end,
   }
   use "vim-pandoc/vim-pandoc-syntax"
+  use {
+    "nvim-neorg/neorg",
+    config = function()
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {},
+        },
+      }
+    end,
+    requires = "nvim-lua/plenary.nvim",
+  }
 end)
