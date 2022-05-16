@@ -9,7 +9,7 @@ require("nvim-treesitter.configs").setup {
     "regex",
     "latex",
     "ledger",
-    "markdown",
+    -- "markdown", -- swapped out for vim-pandoc-syntax
   },
   highlight = {
     enable = true,
@@ -22,3 +22,6 @@ require("nvim-treesitter.configs").setup {
     enable = true,
   },
 }
+-- ends up irritating me more
+-- vim.wo.foldmethod = "expr"
+-- vim.wo.foldexpr = "nvim_treesitter#foldexpr()"

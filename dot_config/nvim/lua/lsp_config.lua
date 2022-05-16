@@ -1,3 +1,6 @@
+require("nvim-lsp-installer").setup {
+  automatic_installation = true,
+}
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 -- local opts = { noremap = true, silent = true } -- kickstart.nvim doesn't use it...
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
@@ -12,6 +15,7 @@ local on_attach = function(client, bufnr)
     -- leave this to jedi
     client.resolved_capabilities.hover = false
   end
+  client.resolved_capabilities.document_formatting = false
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
@@ -29,7 +33,6 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 local servers = { "jedi_language_server", "bashls", "jsonls" }
-
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 for _, lsp in pairs(servers) do
@@ -45,7 +48,8 @@ nvim_lsp["pyright"].setup {
   settings = {
     python = {
       analysis = {
-        typeCheckingMode = "off", -- want to find a way to toggle it somehow...
+        typeCheckingMode = "basic", -- want to find a way to toggle it somehow...
+        -- typeCheckingMode = "off", -- want to find a way to toggle it somehow...
       },
     },
   },

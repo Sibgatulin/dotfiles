@@ -1,6 +1,6 @@
 local nls = require "null-ls"
 local formatting = nls.builtins.formatting
-local diagnostics = nls.builtins.diagnostics
+-- local diagnostics = nls.builtins.diagnostics
 
 local sources = {
   formatting.stylua.with {
@@ -10,7 +10,7 @@ local sources = {
   formatting.isort,
   formatting.shfmt,
 
-  diagnostics.markdownlint,
+  -- diagnostics.markdownlint,
 }
 -- formatting.black, -- cannot make it work in a virtual environment
 
