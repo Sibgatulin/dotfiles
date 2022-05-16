@@ -11,14 +11,15 @@ require("packer").startup(function()
 
   -- Languages and syntax
   use {
-    "neovim/nvim-lspconfig",
     "williamboman/nvim-lsp-installer",
+    "neovim/nvim-lspconfig",
   }
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-buffer"
   use "hrsh7th/cmp-path"
   use "hrsh7th/cmp-cmdline"
+  use "f3fora/cmp-spell"
   use "hrsh7th/cmp-nvim-lua"
   use "L3MON4D3/LuaSnip" --snippet engine
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
@@ -56,7 +57,6 @@ require("packer").startup(function()
       }
     end,
   }
-  -- cannot decide if to use this or nvim-gps
   use "lewis6991/nvim-treesitter-context"
   use {
     "SmiteshP/nvim-gps",
@@ -87,9 +87,9 @@ require("packer").startup(function()
     end,
   }
 
-  -- Utilities
-  use "junegunn/fzf.vim"
+  -- Git
   use "tpope/vim-fugitive"
+  -- use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
   -- let's see if I want it:
   use {
     "lewis6991/gitsigns.nvim",
@@ -99,6 +99,10 @@ require("packer").startup(function()
     end,
   }
   use "rhysd/committia.vim"
+  use "junegunn/gv.vim"
+
+  -- Utilities
+  use "junegunn/fzf.vim"
   use {
     "numToStr/Comment.nvim",
     config = function()
