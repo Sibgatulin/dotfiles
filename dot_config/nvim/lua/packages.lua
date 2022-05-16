@@ -73,7 +73,6 @@ require("packer").startup(function()
   -- })
   use "ggandor/lightspeed.nvim"
   use "romgrk/barbar.nvim"
-  -- Lua
   use {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
@@ -81,8 +80,6 @@ require("packer").startup(function()
       require("todo-comments").setup()
     end,
   }
-
-  -- Lua
   use {
     "folke/trouble.nvim",
     config = function()
@@ -125,9 +122,10 @@ require("packer").startup(function()
     "vim-pandoc/vim-pandoc",
     config = function()
       vim.cmd [[
-        let g:pandoc#formatting#mode = "hA"
+        let g:pandoc#formatting#mode = "sA"
         let g:pandoc#formatting#smart_autoformat_on_cursormoved = 1
       ]]
     end,
   }
+  use "vim-pandoc/vim-pandoc-syntax"
 end)
