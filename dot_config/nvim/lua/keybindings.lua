@@ -29,7 +29,7 @@ local wk = require "which-key"
 wk.register({
   e = {
     name = "NvimTree",
-    t = { "<cmd>NvimTreeToggle<cr>", "Toggle" },
+    t = { "<cmd>NvimTreeFindFileToggle<cr>", "Toggle" },
     f = { "<cmd>NvimTreeFocus<cr>", "Focus" },
   },
   f = {
