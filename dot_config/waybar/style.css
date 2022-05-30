@@ -18,6 +18,7 @@
     color: @theme_text_color;
 }
 #workspaces button.focused {
+    color: @theme_text_color;
     border-color: @borders;
     background-color: @borders;
 }
@@ -29,5 +30,6 @@
 
 #clock {
     font-weight: normal;
+    color: @theme_text_color;
     background-color: @theme_bg_color;
 }
