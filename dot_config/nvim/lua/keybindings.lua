@@ -22,6 +22,13 @@ vim.keymap.set("n", "<C-Up>", ":resize -2<CR>", opts)
 vim.keymap.set("n", "<C-Down>", ":resize +2<CR>", opts)
 vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+--
+-- Buffer navigation using barbar
+vim.keymap.set("n", "<A-,>", ":BufferPrevious<CR>", opts)
+vim.keymap.set("n", "<A-.>", ":BufferNext<CR>", opts)
+vim.keymap.set("n", "<A-p>", ":BufferPin<CR>", opts)
+vim.keymap.set("n", "<A-c>", ":BufferClose<CR>", opts)
+vim.keymap.set("n", "<A-s>", ":BufferPick<CR>", opts)
 
 -- More leader based mappings
 local wk = require "which-key"
@@ -50,4 +57,8 @@ wk.register({
     d = { "<cmd>Pandoc pdf -F pandoc-crossref --citeproc<CR>", "compile" },
     D = { "<cmd>Pandoc! pdf -F pandoc-crossref --citeproc<CR>", "compile & open" },
   },
+  d = {
+    name = "diagnostic",
+    t = { "<cmd>ToggleDiag<cr>", "toggle" }
+  }
 }, { prefix = "<leader>" })
