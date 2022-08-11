@@ -1,7 +1,14 @@
 alias ls='ls --color=auto'
 alias ll='ls -aloFh'
 alias lt='ls -altorFh'
-alias nv='nvim'
+alias nv=nvim
+alias ev=evince
+alias za=zathura
+alias cz=chezmoi
+alias sxiv="sxiv -o" # never know when to expect smth interesting
+alias sx="sxiv"
+alias vf="vifm ."
+alias icat="kitty +kitten icat"
 
 alias vrc='vim ~/.vimrc'
 alias cdg='cd /data/projects/swi-ms-coop-graz-dfg'
@@ -10,7 +17,6 @@ alias cds='cd /data/projects/swi-ms-coop-graz-dfg/data/subjs_all/jen-0010588044-
 alias cdbs='cd /data/projects/swi-susceptibility-mapping/data/best_swi_2020'
 alias cdbl="cd $BATCH_LOG_DIR"
 alias cdss='cd ~/Pictures/screenshots'
-alias cdt="cd {{ .path_biomed }}"
 {{- if eq .chezmoi.hostname "p180380" }}
 alias cdb='cd {{ .path_bergen }}'
 alias cdl='cd {{ .path_leipzig }}'
@@ -20,13 +26,7 @@ alias ssh='kitty +kitten ssh'
 alias c37='conda activate rs_py37'
 alias c39='conda activate rs_py39'
 alias jlp='jupyter lab --no-browser --port'
-alias ev=evince
 {{- end }}
-alias za=zathura
-alias cz=chezmoi
-alias sxiv="sxiv -o" # never know when to expect smth interesting
-alias sx="sxiv"
-
 
 alias cdq="cd ~/soft/qmk_firmware"
 alias vki="vim ~/soft/qmk_firmware/keyboards/keebio/iris/keymaps/sibgatulin/keymap.c"
@@ -39,5 +39,14 @@ alias vhl='vim $LEDGER_FILE'
 alias pacfzf="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
 alias wo='workon'
 alias won='workon -n'
-alias cdq='cd /data/projects/airq/'
+alias cdq='cd /data/airq/'
+alias paqs="/data/venvs/airq/bin/plot_from_airq.py static"
+alias paqi="/data/venvs/airq/bin/plot_from_airq.py interactive"
+# for the latter two, maybe kitty can help
+alias clf='ls -1at | egrep -v "^\.(\.)?$" | head -1 | wl-copy'
+alias ccd='basename $(pwd) | wl-copy'
+# need better solutions:
+alias onlyoffice="export QT_QPA_PLATFORM=xcb; onlyoffice"
+alias ptpython="export MPLBACKEND=module://matplotlib-backend-kitty; ptpython"
+alias ptipython="export MPLBACKEND=module://matplotlib-backend-kitty; ptipython"
 {{- end }}

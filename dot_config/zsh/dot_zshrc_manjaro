@@ -8,7 +8,3 @@ fi
 if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
   source /usr/share/zsh/manjaro-zsh-prompt
 fi
-bindkey -v
-bindkey -M viins '\e.' insert-last-word
-source ~/.bash_aliases
-source ~/.local/bin/virtualenvwrapper.sh

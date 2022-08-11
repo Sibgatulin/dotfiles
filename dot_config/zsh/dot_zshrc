@@ -1,0 +1,36 @@
+# base config for oh my zsh
+source /usr/share/oh-my-zsh/zshrc
+
+#p10k instant prompt to make terminal open a bit snappier
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Source manjaro config
+source ~/.config/zsh/.zshrc_manjaro
+
+# fix for comment color on manjaro zsh theme
+ZSH_HIGHLIGHT_STYLES[comment]='fg=blue'
+
+# user-defined overrides
+[ -d ~/.config/zsh/config.d/ ] && source ~/.config/zsh/config.d/*
+
+# Fix for foot terminfo not installed on most servers
+alias ssh="TERM=xterm-256color ssh"
+
+# To customize prompt, run `p10k configure` or edit /usr/share/zsh/p10k.zsh.
+[[ ! -f /usr/share/zsh/p10k.zsh ]] || source /usr/share/zsh/p10k.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+bindkey -v
+bindkey -M viins '\e.' insert-last-word
+bindkey '^e' edit-command-line
+source ~/.bash_aliases
+source ~/.local/bin/virtualenvwrapper.sh
+source /usr/share/fzf/{key-bindings,completion}.zsh
+
+# bind k and j to history substring search in VI mode
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
