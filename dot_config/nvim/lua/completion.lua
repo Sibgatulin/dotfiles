@@ -51,6 +51,7 @@ cmp.setup {
     { name = "buffer" },
     { name = "path" },
     { name = "nvim_lua" },
+    { name = "pandoc_references" },
     -- { name = "spell" },
   },
 }

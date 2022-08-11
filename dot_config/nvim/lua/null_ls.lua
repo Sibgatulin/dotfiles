@@ -6,7 +6,8 @@ local sources = {
   formatting.stylua.with {
     extra_args = { "--config-path", vim.fn.expand "~/.config/stylua.toml" },
   },
-  formatting.fixjson,
+  -- formatting.fixjson, -- would like to configure array splitting
+  formatting.prettier,
   formatting.isort,
   formatting.shfmt,
   formatting.black, -- did it just start working well?

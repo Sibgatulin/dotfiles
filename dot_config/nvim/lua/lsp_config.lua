@@ -13,9 +13,9 @@ local on_attach = function(client, bufnr)
   local opts = { buffer = bufnr }
   if client.name == "pyright" then
     -- leave this to jedi
-    client.resolved_capabilities.hover = false
+    client.server_capabilities.hover = false
   end
-  client.resolved_capabilities.document_formatting = false
+  client.server_capabilities.document_formatting = false
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)

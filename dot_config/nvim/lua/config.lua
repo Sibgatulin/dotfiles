@@ -1,9 +1,9 @@
-vim.g.backup = true
-vim.g.undofile = true
-vim.g.undolevels = 1000
-vim.g.undodir = "~/.config/nvim/.undo/"
-vim.g.directory = "~/.config/nvim/.swp/"
-vim.g.backupdir = "~/.config/nvim/.backup/"
+vim.o.backup = true
+vim.o.undofile = true
+vim.o.undolevels = 1000
+vim.o.undodir = "~/.config/nvim/.undo/"
+vim.o.directory = "~/.config/nvim/.swp/"
+vim.o.backupdir = "~/.config/nvim/.backup/"
 vim.g.python3_host_prog = "/usr/bin/python"
 
 vim.g.termguicolors = true

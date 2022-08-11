@@ -21,8 +21,20 @@ require("packer").startup(function()
   use "hrsh7th/cmp-cmdline"
   use "f3fora/cmp-spell"
   use "hrsh7th/cmp-nvim-lua"
+  use "jc-doyle/cmp-pandoc-references"
   use "L3MON4D3/LuaSnip" --snippet engine
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  use {
+    "jose-elias-alvarez/null-ls.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+  }
+  use "ludovicchabant/vim-gutentags"
+  use {'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim', config = function ()
+    require("toggle_lsp_diagnostics").init()
+    end
+  }
+
+  -- Treesitter based
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
   use {
     "lewis6991/spellsitter.nvim",
@@ -31,23 +43,7 @@ require("packer").startup(function()
     end,
   }
   use "p00f/nvim-ts-rainbow"
-  use {
-    "jose-elias-alvarez/null-ls.nvim",
-    requires = { "nvim-lua/plenary.nvim" },
-  }
   use "JoosepAlviste/nvim-ts-context-commentstring"
-  use "ludovicchabant/vim-gutentags"
-
-  -- Vim specific
-  use {
-    "kyazdani42/nvim-tree.lua",
-    requires = {
-      "kyazdani42/nvim-web-devicons", -- optional, for file icon
-    },
-  }
-  use "ellisonleao/gruvbox.nvim"
-
-  use "folke/which-key.nvim"
   use {
     "lukas-reineke/indent-blankline.nvim",
     config = function()
@@ -64,6 +60,17 @@ require("packer").startup(function()
       require("nvim-gps").setup()
     end,
   }
+
+  -- Vim specific
+  use {
+    "kyazdani42/nvim-tree.lua",
+    requires = {
+      "kyazdani42/nvim-web-devicons", -- optional, for file icon
+    },
+  }
+  use "ellisonleao/gruvbox.nvim"
+
+  use "folke/which-key.nvim"
   use "nvim-lualine/lualine.nvim" -- need to configure more
   -- use({ -- need to configure better
   --   "windwp/nvim-autopairs",
@@ -73,6 +80,18 @@ require("packer").startup(function()
   -- })
   use "ggandor/lightspeed.nvim"
   use "romgrk/barbar.nvim"
+  use {
+    "b0o/incline.nvim",
+    config = function()
+      require("incline").setup(
+      {
+        hide = {
+          only_win = true
+        }
+      }
+    )
+    end,
+  }
   use {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
@@ -111,7 +130,7 @@ require("packer").startup(function()
   } -- "gc" to comment visual regions/lines
 
   -- Python
-  use "psf/black"
+  -- use "psf/black"
   use {
     "luk400/vim-jukit",
     tag = "v0.1.0",
