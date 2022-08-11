@@ -1,4 +1,11 @@
 [Default Applications]
-image/jpeg=sxiv.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-MY7MD1.desktop
 text/plain=myvim.desktop;
-application/pdf=org.pwmt.zathura.desktop;
+text/html=librewolf.desktop
+x-scheme-handler/http=librewolf.desktop
+x-scheme-handler/https=librewolf.desktop
+x-scheme-handler/about=librewolf.desktop
+x-scheme-handler/unknown=librewolf.desktop
+
+[Added Associations]
+x-scheme-handler/tg=userapp-Telegram Desktop-MY7MD1.desktop;

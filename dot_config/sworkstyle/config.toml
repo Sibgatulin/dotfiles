@@ -18,9 +18,11 @@
 
 [matching]
 'Zotero' = '𝐙'
+'librewolf' = ''
 '/^nvim ?\S*$/' = ''
 '/^nv ?\S*$/' = ''
 '/^nv -d \S+( \S+)?$/' = ''
 '/ncmpcpp/' = ''
 'ncmpcpp' = '' # assuming that it was started with ``kitty --class ncmpcpp ncmpcpp``
 "kitty" = ""
+'Slack' = '' # to take priority over regex matching github
