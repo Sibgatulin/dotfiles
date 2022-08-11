@@ -70,7 +70,7 @@ colorscheme gruvbox
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
 " See man date or man strftime for details.
 
-set timefmt=%m/%d\ %H:%M
+set timefmt=%Y-%m-%d\ %H:%M
 
 " Show list of matches on tab completion in command-line mode
 
@@ -110,7 +110,7 @@ endif
 
 " Set custom status line look
 
-set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
+set statusline="  Hint: %z%= %A %10u:%-7g %15E %20d  %{&sort}  "
 
 " ------------------------------------------------------------------------------
 
@@ -236,12 +236,11 @@ fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
         \ {View in sxiv}
         \ sxiv %f,
-        \ {View in gpicview}
-        \ gpicview %c,
-        \ {View in shotwell}
-        \ shotwell,
 fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
-         \ identify %f
+        \ kitty +icat --transfer-mode=stream --place %pwx%ph@%pxx%py  --silent %c %N
+        \ %pc
+        \ kitty icat --clear --silent %pd
+         " \ identify %f
 
 " OpenRaster
 filextype *.ora
@@ -349,9 +348,10 @@ filetype *.tudu tudu -f %c
 filextype *.pro qtcreator %f &
 
 " Directories
-filextype */
-        \ {View in thunar}
-        \ Thunar %f &,
+fileviewer */ tree -L 2 -I .git %c
+" filextype */
+"         \ {View in thunar}
+"         \ Thunar %f &,
 
 " Syntax highlighting in preview
 "

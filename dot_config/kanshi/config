@@ -5,7 +5,7 @@ profile corant {
 
 profile multihead {
     output "Lenovo Group Limited LEN L27q-30 U162N76F" position 0,0
-    output eDP-1 position 2560,0
+    output eDP-1 position 2560,360
 }
 
 profile singlehead {

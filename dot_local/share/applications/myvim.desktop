@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=MyVim
-Exec=/usr/bin/kitty vim %F
+Exec=/usr/bin/kitty nvim %F
 Terminal=false
 Icon=gvim
 Categories=Utility;TextEditor

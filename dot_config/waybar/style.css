@@ -1,35 +1,30 @@
 @import "/usr/share/sway/templates/waybar/style.css";
 
 * {
-    font-family: "Fira Mono", "RobotoMono Nerd Font", "Roboto Mono", sans-serif;
-    font-size: 16px;
-}
-/* The whole bar */
-#waybar {
-    color: @theme_text_color;
+  font-family: "Fira Mono", "RobotoMono Nerd Font", "Roboto Mono", sans-serif;
+  font-size: 16px;
+  color: @theme_text_color;
 }
 
 #workspaces button {
-    border-top: 2px solid transparent;
-    /* To compensate for the top border and still have vertical centering */
-    padding-bottom: 2px;
-    padding-left: 10px;
-    padding-right: 10px;
-    color: @theme_text_color;
+  border-top: 2px solid transparent;
+  /* To compensate for the top border and still have vertical centering */
+  padding-bottom: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 #workspaces button.focused {
-    color: @theme_text_color;
-    border-color: @borders;
-    background-color: @borders;
+  border-color: @borders;
+  background-color: @borders;
 }
 #custom-scratchpad {
-    background-color: @theme_bg_color;
-    border-left: 2px solid;
-    border-color: @borders;
+  background-color: @theme_bg_color;
+  border-left: 2px solid;
+  border-color: @borders;
 }
 
 #clock {
-    font-weight: normal;
-    color: @theme_text_color;
-    background-color: @theme_bg_color;
+  font-weight: normal;
+  color: @theme_text_color;
+  background-color: @theme_bg_color;
 }
