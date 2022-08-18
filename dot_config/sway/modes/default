@@ -1,7 +1,7 @@
 $unbindsym $mod+Return
 $unbindsym $mod+Shift+Return
 # $bindsym $mod+Return exec $term
-$bindsym $mod+Return exec '/home/renat/.local/kitty.app/bin/kitty --listen-on=unix:@"$(date +%s%N)"'
+$bindsym $mod+Return exec 'kitty --listen-on=unix:@"$(date +%s%N)"'
 $bindsym $mod+Shift+Return exec $browser
 # $bindsym $mod+n exec 'kitty --listen-on=unix:@"$(date +%s%N)"'
 $unbindsym $mod+Shift+p

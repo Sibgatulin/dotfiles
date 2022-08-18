@@ -9,6 +9,7 @@ require("nvim-treesitter.configs").setup {
     "regex",
     "latex",
     "ledger",
+    "norg",
     -- "markdown", -- swapped out for vim-pandoc-syntax
   },
   highlight = {
