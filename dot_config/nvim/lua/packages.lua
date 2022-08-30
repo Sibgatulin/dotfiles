@@ -11,7 +11,8 @@ require("packer").startup(function()
 
   -- Languages and syntax
   use {
-    "williamboman/nvim-lsp-installer",
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
   }
   use "hrsh7th/cmp-nvim-lsp"
@@ -24,11 +25,12 @@ require("packer").startup(function()
   use "jc-doyle/cmp-pandoc-references"
   use "L3MON4D3/LuaSnip" --snippet engine
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use {
-    "jose-elias-alvarez/null-ls.nvim",
-    requires = { "nvim-lua/plenary.nvim" },
-  }
-  use "ludovicchabant/vim-gutentags"
+  -- use {
+  --   "jose-elias-alvarez/null-ls.nvim",
+  --   requires = { "nvim-lua/plenary.nvim" },
+  -- }
+  -- use { 'mhartington/formatter.nvim' }
+  -- use "ludovicchabant/vim-gutentags"
   use {'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim', config = function ()
     require("toggle_lsp_diagnostics").init()
     end
@@ -105,6 +107,7 @@ require("packer").startup(function()
       require("trouble").setup()
     end,
   }
+  use "mhartington/formatter.nvim"
 
   -- Git
   use "tpope/vim-fugitive"

@@ -3,11 +3,11 @@ vim.cmd [[
     autocmd!
     autocmd FileType qf,help,lspinfo nnoremap <silent> <buffer> q :close<CR>
   augroup end
-  augroup TrailingSpaces
+  augroup FormatAutogroup
     autocmd!
-    autocmd BufWritePre * %s/\s\+$//e
+    autocmd BufWritePre * FormatWrite
   augroup end
-  augroup PythonAutoformat
+  augroup CleanExportedJupyterNotebooks
     autocmd!
     autocmd BufWritePre *.py %s/\n\n# In\[[0-9]\+]:\n\n//e
   augroup end
