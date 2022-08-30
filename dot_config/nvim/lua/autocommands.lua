@@ -5,7 +5,7 @@ vim.cmd [[
   augroup end
   augroup FormatAutogroup
     autocmd!
-    autocmd BufWritePre * FormatWrite
+    autocmd BufWritePre * Format
   augroup end
   augroup CleanExportedJupyterNotebooks
     autocmd!
