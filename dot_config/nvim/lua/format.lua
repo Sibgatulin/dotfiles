@@ -1,6 +1,6 @@
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
-local util = require("formatter.util")
-require("formatter").setup({
+local util = require "formatter.util"
+require("formatter").setup {
   filetype = {
     -- Formatter configurations for filetype "lua" go here
     -- and will be executed in order
@@ -41,4 +41,4 @@ require("formatter").setup({
       require("formatter.filetypes.any").remove_trailing_whitespace,
     },
   },
-})
+}

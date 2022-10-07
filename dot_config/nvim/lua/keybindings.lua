@@ -59,6 +59,6 @@ wk.register({
   },
   d = {
     name = "diagnostic",
-    t = { "<cmd>ToggleDiag<cr>", "toggle" }
-  }
+    t = { "<cmd>ToggleDiag<cr>", "toggle" },
+  },
 }, { prefix = "<leader>" })
