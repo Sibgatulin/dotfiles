@@ -44,7 +44,7 @@ alias cdq='cd /data/airq/'
 alias paqs="/data/venvs/airq/bin/plot_from_airq.py static"
 alias paqi="/data/venvs/airq/bin/plot_from_airq.py interactive"
 # for the latter two, maybe kitty can help
-alias clf='ls -1at | egrep -v "^\.(\.)?$" | head -1 | wl-copy'
+alias clf='ls -1at | grep -Ev "^\.(\.)?$" | head -1 | wl-copy'
 alias ccd='basename $(pwd) | wl-copy'
 # need better solutions:
 alias onlyoffice="export QT_QPA_PLATFORM=xcb; onlyoffice"
