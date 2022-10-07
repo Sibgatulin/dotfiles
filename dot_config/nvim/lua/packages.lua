@@ -31,9 +31,11 @@ require("packer").startup(function()
   -- }
   -- use { 'mhartington/formatter.nvim' }
   -- use "ludovicchabant/vim-gutentags"
-  use {'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim', config = function ()
-    require("toggle_lsp_diagnostics").init()
-    end
+  use {
+    "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
+    config = function()
+      require("toggle_lsp_diagnostics").init()
+    end,
   }
 
   -- Treesitter based
@@ -85,13 +87,11 @@ require("packer").startup(function()
   use {
     "b0o/incline.nvim",
     config = function()
-      require("incline").setup(
-      {
+      require("incline").setup {
         hide = {
-          only_win = true
-        }
+          only_win = true,
+        },
       }
-    )
     end,
   }
   use {
@@ -107,18 +107,17 @@ require("packer").startup(function()
       require("trouble").setup()
     end,
   }
+  use "stevearc/dressing.nvim"
   use "mhartington/formatter.nvim"
 
   -- Git
+  use { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }
   use "tpope/vim-fugitive"
   -- use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
   -- let's see if I want it:
   use {
     "lewis6991/gitsigns.nvim",
     requires = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("gitsigns").setup()
-    end,
   }
   use "rhysd/committia.vim"
   use "junegunn/gv.vim"
@@ -133,7 +132,6 @@ require("packer").startup(function()
   } -- "gc" to comment visual regions/lines
 
   -- Python
-  -- use "psf/black"
   use {
     "luk400/vim-jukit",
     tag = "v0.1.0",
