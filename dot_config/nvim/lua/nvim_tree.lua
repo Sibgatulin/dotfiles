@@ -4,7 +4,6 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
   -- sort_by = "name", -- "modification_time" possible
   view = {
     width = 30,
-    height = 30,
     side = "right",
     preserve_window_proportions = false, -- wanted - resize rest on toggle
     number = true, -- wanted
