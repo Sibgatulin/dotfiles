@@ -73,6 +73,7 @@ require("packer").startup(function()
     },
   }
   use "ellisonleao/gruvbox.nvim"
+  use "luisiacc/gruvbox-baby"
 
   use "folke/which-key.nvim"
   use "nvim-lualine/lualine.nvim" -- need to configure more
@@ -107,8 +108,38 @@ require("packer").startup(function()
       require("trouble").setup()
     end,
   }
-  use "stevearc/dressing.nvim"
+  -- use "stevearc/dressing.nvim"
   use "mhartington/formatter.nvim"
+  use {
+    "rcarriga/nvim-notify",
+    config = function()
+      require("notify").setup {
+        render = "minimal",
+        stages = "static",
+        top_down = false,
+        minimum_width = 30,
+        timeout = 3000,
+      }
+    end,
+  }
+  use {
+    "folke/noice.nvim",
+    config = function()
+      require("noice").setup {
+        cmdline = {
+          view = "cmdline",
+        },
+      }
+    end,
+    requires = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      -- "rcarriga/nvim-notify",
+    },
+  }
 
   -- Git
   use { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }
@@ -130,6 +161,12 @@ require("packer").startup(function()
       require("Comment").setup()
     end,
   } -- "gc" to comment visual regions/lines
+  use {
+    "lewis6991/impatient.nvim",
+    config = function()
+      require "impatient"
+    end,
+  }
 
   -- Python
   use {

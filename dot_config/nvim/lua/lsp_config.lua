@@ -30,7 +30,7 @@ end
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 local servers = { "bashls", "jsonls", "jedi_language_server" }
 -- Use a loop to conveniently call 'setup' on multiple servers and

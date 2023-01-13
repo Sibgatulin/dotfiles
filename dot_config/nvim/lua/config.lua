@@ -6,9 +6,6 @@ vim.o.directory = os.getenv "HOME" .. "/.config/nvim/.swp/"
 vim.o.backupdir = os.getenv "HOME" .. "/.config/nvim/.backup/"
 vim.g.python3_host_prog = "/usr/bin/python"
 
-vim.g.termguicolors = true
-vim.cmd [[colorscheme gruvbox]] -- because diff looks awful w/gruvbox-material
-
 vim.o.expandtab = true
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2

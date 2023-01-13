@@ -1,5 +1,6 @@
-require "config"
 require "packages"
+require "colors"
+require "config"
 require "keybindings"
 require "lsp_mason"
 require "lsp_config"
