@@ -108,38 +108,8 @@ require("packer").startup(function()
       require("trouble").setup()
     end,
   }
-  -- use "stevearc/dressing.nvim"
+  use "stevearc/dressing.nvim"
   use "mhartington/formatter.nvim"
-  use {
-    "rcarriga/nvim-notify",
-    config = function()
-      require("notify").setup {
-        render = "minimal",
-        stages = "static",
-        top_down = false,
-        minimum_width = 30,
-        timeout = 3000,
-      }
-    end,
-  }
-  use {
-    "folke/noice.nvim",
-    config = function()
-      require("noice").setup {
-        cmdline = {
-          view = "cmdline",
-        },
-      }
-    end,
-    requires = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      -- "rcarriga/nvim-notify",
-    },
-  }
 
   -- Git
   use { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" }
@@ -170,11 +140,20 @@ require("packer").startup(function()
 
   -- Python
   use {
-    "luk400/vim-jukit",
-    tag = "v0.1.0",
+    "AckslD/swenv.nvim",
     config = function()
-      vim.g.jukit_enable_text_syntax_hl = "" -- otherwise code is misinterpreted as text
+      require("swenv").setup {
+        -- Path passed to `get_venvs`.
+        venvs_path = "/data/venvs",
+        -- post_set_venv = function()
+        --   vim.cmd [[:LspRestart]]
+        -- end,
+      }
     end,
+  }
+  use {
+    "luk400/vim-jukit",
+    -- tag = "v0.1.0",
   }
 
   -- Specific files
