@@ -1,15 +1,15 @@
-require("config")
-require("packages")
-require("keybindings")
-require("lsp_mason")
-require("lsp_config")
-require("completion")
-require("treesitter")
-require("nvim_tree")
-require("autocommands")
-require("ledger")
-require("which_key")
-require("lua_line")
-require("format")
-require("bufferbar")
-require("gitsign")
+require "config"
+require "packages"
+require "keybindings"
+require "lsp_mason"
+require "lsp_config"
+require "completion"
+require "treesitter"
+require "nvim_tree"
+require "autocommands"
+require "ledger"
+require "which_key"
+require "lua_line"
+require "format"
+require "bufferbar"
+require "gitsign"
