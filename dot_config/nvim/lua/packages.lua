@@ -145,9 +145,9 @@ require("packer").startup(function()
       require("swenv").setup {
         -- Path passed to `get_venvs`.
         venvs_path = "/data/venvs",
-        -- post_set_venv = function()
-        --   vim.cmd [[:LspRestart]]
-        -- end,
+        post_set_venv = function()
+          vim.cmd [[:LspRestart]]
+        end,
       }
     end,
   }
