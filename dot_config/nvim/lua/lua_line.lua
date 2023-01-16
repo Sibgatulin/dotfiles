@@ -3,7 +3,7 @@ local gps = require "nvim-gps"
 require("lualine").setup {
   options = { globalstatus = true },
   sections = {
-    lualine_b = { "branch", "diff" },
+    lualine_b = { "branch", "diff", "swenv" },
     lualine_c = {
       "filename",
       { gps.get_location, cond = gps.is_available },

@@ -1,5 +1,7 @@
 vim.g.jukit_output_new_os_window = 1
+vim.g.jukit_hl_ext_enabled = { "py" }
 vim.g.jukit_ipython = 0
+vim.g.jukit_mappings = 0
 -- following script is required, as ptipython, contrary to ipython, does not seem
 -- to accept -c <code>.
 -- TODO: consider adding ipython magic and hooks from about

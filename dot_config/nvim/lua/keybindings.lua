@@ -61,4 +61,70 @@ wk.register({
     name = "diagnostic",
     t = { "<cmd>ToggleDiag<cr>", "toggle" },
   },
+  v = {
+    name = "swenv",
+    e = { "<cmd>lua require('swenv.api').pick_venv()<cr>", "Choose venv" },
+  },
+  j = {
+    name = "jukit",
+    w = {
+      name = "Windows",
+      p = {
+        [[<cmd>lua require("jukit").JukitStartInVenv()<cr>]],
+        "Start ptipython in current venv",
+      },
+      s = { "<cmd>call jukit#splits#term()<cr>", "Open a new shell" },
+      q = {
+        "<cmd>call jukit#splits#close_output_and_history(1)<cr>",
+        "Close all and ask",
+      },
+    },
+    s = {
+      name = "Send",
+      c = { "<cmd>call jukit#send#section(0)<cr>", "Send the cell" },
+      l = { "<cmd>call jukit#send#line()<cr>", "Send the line" },
+      a = { "<cmd>call jukit#send#all()<cr>", "Execute all" },
+    },
+    c = {
+      name = "Cell",
+      o = { "<cmd>call jukit#cells#create_below(0)<cr>", "Create a code cell below" },
+      O = { "<cmd>call jukit#cells#create_above(0)<cr>", "Create a code cell above" },
+      t = { "<cmd>call jukit#cells#create_below(1)<cr>", "Create a text cell below" },
+      T = { "<cmd>call jukit#cells#create_above(1)<cr>", "Create a text cell above" },
+      d = { "<cmd>call jukit#cells#delete()<cr>", "Delete current cell" },
+      s = { "<cmd>call jukit#cells#split()<cr>", "Split current cell" },
+      M = { "<cmd>call jukit#cells#merge_above()<cr>", "Merge with the cell above" },
+      m = { "<cmd>call jukit#cells#merge_below()<cr>", "Merge with the cell below" },
+      k = { "<cmd>call jukit#cells#move_up()<cr>", "Move the cell up" },
+      j = { "<cmd>call jukit#cells#move_down()<cr>", "Move the cell down" },
+    },
+    j = { "<cmd>call jukit#cells#jump_to_next_cell()<cr>", "Jump to the next cell" },
+    k = {
+      "<cmd>call jukit#cells#jump_to_previous_cell()<cr>",
+      "Jump to the previous cell",
+    },
+    t = {
+      name = "Convert to",
+      n = {
+        [[<cmd>call jukit#convert#notebook_convert("jupyter-notebook")<cr>]],
+        ".ipynb <-> .py",
+      },
+      h = {
+        [[<cmd>call jukit#convert#save_nb_to_file(0,1,"html")<cr>]],
+        "as is -> .html",
+      },
+      H = {
+        [[<cmd>call jukit#convert#save_nb_to_file(1,1,"html")<cr>]],
+        "rerun -> .html",
+      },
+      p = {
+        [[<cmd>call jukit#convert#save_nb_to_file(0,1,"pdf")<cr>]],
+        "as is -> .pdf",
+      },
+      P = {
+        [[<cmd>call jukit#convert#save_nb_to_file(1,1,"pdf")<cr>]],
+        "rerun -> .pdf",
+      },
+    },
+  },
 }, { prefix = "<leader>" })
