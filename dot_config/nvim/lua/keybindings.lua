@@ -70,8 +70,12 @@ wk.register({
     w = {
       name = "Windows",
       p = {
-        [[<cmd>lua require("jukit").JukitStartInVenv()<cr>]],
-        "Start ptipython in current venv",
+        [[<cmd>lua require("jukit").JukitStartInVenv(false)<cr>]],
+        "Start ptipython in current venv (w/o GPU)",
+      },
+      o = {
+        [[<cmd>lua require("jukit").JukitStartInVenv(true)<cr>]],
+        "Start ptipython in current venv (w/ GPU)",
       },
       s = { "<cmd>call jukit#splits#term()<cr>", "Open a new shell" },
       q = {

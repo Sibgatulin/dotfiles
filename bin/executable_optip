@@ -1,0 +1,1 @@
+export MPLBACKEND=module://matplotlib-backend-kitty; optirun ptipython
