@@ -11,6 +11,15 @@ vim.keymap.set("n", "<leader>cfp", "<cmd>let @+ = expand('%:p')<cr>", opts)
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- Move blocks in visual mode
+vim.keymap.set("v", "J", ":move '>+1<CR>gv=gv", opts)
+vim.keymap.set("v", "K", ":move '<-2<CR>gv=gv", opts)
+
+-- Yank to system clipboard
+vim.keymap.set("n", "<leader>y", '"+y', opts)
+vim.keymap.set("v", "<leader>y", '"+y', opts)
+vim.keymap.set("n", "<leader>Y", '"+Y', opts)
+
 -- Better window navigation
 vim.keymap.set("n", "<c-h>", "<c-w>h", opts)
 vim.keymap.set("n", "<c-j>", "<c-w>j", opts)
@@ -29,6 +38,9 @@ vim.keymap.set("n", "<A-.>", ":BufferNext<CR>", opts)
 vim.keymap.set("n", "<A-p>", ":BufferPin<CR>", opts)
 vim.keymap.set("n", "<A-c>", ":BufferClose<CR>", opts)
 vim.keymap.set("n", "<A-s>", ":BufferPick<CR>", opts)
+
+-- Undo tree
+vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", opts)
 
 -- More leader based mappings
 local wk = require "which-key"
@@ -132,3 +144,7 @@ wk.register({
     },
   },
 }, { prefix = "<leader>" })
+wk.register(
+  { ["<leader>js"] = { "<cmd>call jukit#send#selection()<cr>", "Send selection" } },
+  { mode = "v" }
+)

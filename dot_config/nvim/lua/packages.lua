@@ -124,6 +124,7 @@ require("packer").startup(function()
   use "junegunn/gv.vim"
 
   -- Utilities
+  use "mbbill/undotree"
   use "junegunn/fzf.vim"
   use {
     "numToStr/Comment.nvim",
