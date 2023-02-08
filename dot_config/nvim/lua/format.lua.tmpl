@@ -32,8 +32,9 @@ require("formatter").setup {
         local folder = vim.fn.expand "%:p:h"
         if folder == "{{ .path_firmwd }}" then
           return nil
+        else
+          return require("formatter.filetypes.python").isort()
         end
-        return require("formatter.filetypes.python").isort
       end,
     },
     toml = {
