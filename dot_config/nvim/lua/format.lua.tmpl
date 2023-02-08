@@ -28,7 +28,13 @@ require("formatter").setup {
 
     python = {
       require("formatter.filetypes.python").black,
-      require("formatter.filetypes.python").isort,
+      function()
+        local folder = vim.fn.expand "%:p:h"
+        if folder == "{{ .path_firmwd }}" then
+          return nil
+        end
+        return require("formatter.filetypes.python").isort
+      end,
     },
     toml = {
       require("formatter.filetypes.toml").taplo,
@@ -45,3 +51,4 @@ require("formatter").setup {
     },
   },
 }
+-- vi: ft=lua
