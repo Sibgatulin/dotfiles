@@ -30,7 +30,7 @@ require("formatter").setup {
       require("formatter.filetypes.python").black,
       function()
         local folder = vim.fn.expand "%:p:h"
-        if folder == "{{ .path_firmwd }}" then
+        if string.find(folder, "{{ .path_firmwd }}", 1, true) then
           return nil
         else
           return require("formatter.filetypes.python").isort()
