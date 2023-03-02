@@ -13,6 +13,9 @@
   padding-left: 10px;
   padding-right: 10px;
 }
+#workspaces button.visible {
+  border-color: @borders;
+}
 #workspaces button.focused {
   border-color: @borders;
   background-color: @borders;
@@ -21,6 +24,7 @@
   background-color: @theme_bg_color;
   border-left: 2px solid;
   border-color: @borders;
+  color: @theme_text_color;
 }
 
 #clock {
