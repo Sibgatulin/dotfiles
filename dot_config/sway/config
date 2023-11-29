@@ -10,6 +10,7 @@ set $theme ~/.config/sway/themes/gruvbox
 
 #theme variables
 include $theme/definitions
+include $theme/colors
 
 # global variables
 include /etc/sway/definitions
