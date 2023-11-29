@@ -1,34 +1,32 @@
 @import "/usr/share/sway/templates/waybar/style.css";
 
 * {
-  font-family: "Fira Mono", "RobotoMono Nerd Font", "Roboto Mono", sans-serif;
-  font-size: 16px;
-  color: @theme_text_color;
+    font-family: "FiraCode Nerd Font", "FontAwesome", sans-serif; 
+    font-size: 11px;
 }
-
 #workspaces button {
-  border-top: 2px solid transparent;
-  /* To compensate for the top border and still have vertical centering */
-  padding-bottom: 2px;
-  padding-left: 10px;
-  padding-right: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
-#workspaces button.visible {
-  border-color: @borders;
-}
-#workspaces button.focused {
-  border-color: @borders;
-  background-color: @borders;
-}
-#custom-scratchpad {
-  background-color: @theme_bg_color;
-  border-left: 2px solid;
-  border-color: @borders;
-  color: @theme_text_color;
-}
-
-#clock {
-  font-weight: normal;
-  color: @theme_text_color;
-  background-color: @theme_bg_color;
+#sway-language,
+#custom-pacman,
+#custom-power_profile,
+#custom-scratchpad,
+#bluetooth,
+#battery,
+#clock,
+#cpu,
+#memory,
+#mode,
+#pulseaudio,
+#temperature,
+#idle_inhibitor,
+#backlight,
+#language,
+#custom-adaptive-light,
+#custom-sunset,
+#custom-playerctl,
+#tray {
+    padding-left: 5px;
+    padding-right: 5px;
 }
