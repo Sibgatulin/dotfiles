@@ -3,6 +3,7 @@ Configuration example for ``ptpython``.
 
 Copy this file to $XDG_CONFIG_HOME/ptpython/config.py
 On Linux, this is: ~/.config/ptpython/config.py
+On macOS, this is: ~/Library/Application Support/ptpython/config.py
 """
 from prompt_toolkit.filters import ViInsertMode
 from prompt_toolkit.key_binding.key_processor import KeyPress
@@ -49,14 +50,14 @@ def configure(repl):
     # Swap light/dark colors on or off
     repl.swap_light_and_dark = False
 
-    # Highlight matching parethesis.
+    # Highlight matching parentheses.
     repl.highlight_matching_parenthesis = True
 
     # Line wrapping. (Instead of horizontal scrolling.)
     repl.wrap_lines = True
 
     # Mouse support.
-    repl.enable_mouse_support = False
+    repl.enable_mouse_support = False  # otherwise can' scroll 🤷
 
     # Complete while typing. (Don't require tab before the
     # completion menu is shown.)
@@ -69,8 +70,11 @@ def configure(repl):
     # Vi mode.
     repl.vi_mode = True
 
+    # Enable the modal cursor (when using Vi mode). Other options are 'Block', 'Underline',  'Beam',  'Blink under', 'Blink block', and 'Blink beam'
+    repl.cursor_shape_config = "Modal (vi)"
+
     # Paste mode. (When True, don't insert whitespace after new line.)
-    repl.paste_mode = True
+    repl.paste_mode = False  # TODO: make as separate config for jukit
 
     # Use the classic prompt. (Display '>>>' instead of 'In [1]'.)
     repl.prompt_style = "ipython"  # 'classic' or 'ipython'
@@ -110,7 +114,7 @@ def configure(repl):
     # color schemes. See:
     # https://pygments.org/docs/styles/
     # https://pygments.org/demo/
-    repl.use_code_colorscheme("native")
+    repl.use_code_colorscheme("gruvbox-dark")
     # A colorscheme that looks good on dark backgrounds is 'native':
     # repl.use_code_colorscheme("native")
 
