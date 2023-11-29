@@ -5,19 +5,17 @@ alias nv=nvim
 alias ev=evince
 alias za=zathura
 alias cz=chezmoi
-alias sxiv="sxiv -o" # never know when to expect smth interesting
-alias sx="sxiv"
+alias sx="imv" # muscle memory 🤷
 alias vf="vifm ."
 alias icat="kitty +kitten icat"
 
-alias vrc='vim ~/.vimrc'
 alias cdg='cd /data/projects/swi-ms-coop-graz-dfg'
 alias cda='cd /data/projects/swi-ms-coop-graz-dfg/data/subjs_all'
 alias cds='cd /data/projects/swi-ms-coop-graz-dfg/data/subjs_all/jen-0010588044-20180119/'
 alias cdbs='cd /data/projects/swi-susceptibility-mapping/data/best_swi_2020'
 alias cdbgn='cd /data/projects/bgn-maggioni-back-muscle/'
-alias cdbl="cd $BATCH_LOG_DIR"
-alias cdss='cd ~/Pictures/screenshots'
+alias cdss="cd $XDG_SCREENSHOTS_DIR"
+
 {{- if eq .chezmoi.hostname "p180380" }}
 alias cdb='cd {{ .path_bergen }}'
 alias cdl='cd {{ .path_leipzig }}'
@@ -35,8 +33,8 @@ alias vkk="vim ~/soft/qmk_firmware/keyboards/kyria/keymaps/sibgatulin/keymap.c"
 alias vci="vim ~/soft/qmk_firmware/keyboards/keebio/iris/keymaps/sibgatulin/config.h"
 alias vck="vim ~/soft/qmk_firmware/keyboards/kyria/keymaps/sibgatulin/config.h"
 
-{{- if eq .chezmoi.hostname "ideapad" }}
-alias vhl='vim $LEDGER_FILE'
+{{- if not (eq .chezmoi.hostname "p180380") }}
+# alias vhl='vim $LEDGER_FILE'
 alias pacfzf="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
 alias wo='workon'
 alias won='workon -n'
