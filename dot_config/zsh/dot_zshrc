@@ -28,9 +28,11 @@ bindkey -v
 bindkey -M viins '\e.' insert-last-word
 bindkey '^e' edit-command-line
 source ~/.bash_aliases
-source ~/.local/bin/virtualenvwrapper.sh
-source /usr/share/fzf/{key-bindings,completion}.zsh
+[ -f /usr/bin/virtualenvwrapper_lazy.sh ] && source /usr/bin/virtualenvwrapper_lazy.sh
+[ -d /usr/share/fzf/ ] && source /usr/share/fzf/{key-bindings,completion}.zsh
 
 # bind k and j to history substring search in VI mode
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
+
+eval "$(zoxide init zsh)"
