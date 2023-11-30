@@ -1,24 +1,53 @@
 return {
   {
+    "AckslD/swenv.nvim",
+    ft = "python",
+    opts = {
+      -- Path passed to `get_venvs`.
+      venvs_path = "/data/venvs/p311/",
+      post_set_venv = function()
+        vim.cmd [[:LspRestart]]
+      end,
+    },
+    keys = {
+      {
+        "<leader>ve",
+        "<cmd>lua require('swenv.api').pick_venv()<cr>",
+        desc = "Choose venv",
+      },
+    },
+  },
+  {
+    "linux-cultist/venv-selector.nvim",
+    opts = { venvwrapper_path = "/data/venvs/py311" },
+  },
+  {
     "luk400/vim-jukit",
     config = function()
       -- FIX: following must be fixed, as ptipython does not accept -c -i ... + venvs...
       vim.g.jukit_shell_cmd =
-        "ptipython --config-file /home/renat/.config/ptpython/config-nopaste.py"
+        "ptipython --config-file /home/renat/.config/ptpython/config-pastemode.py"
       vim.g.jukit_terminal = "kitty"
       vim.g.jukit_ipython = 0
       vim.g.jukit_mappings = 0
       vim.g.jukit_output_new_os_window = 1
       vim.g.jukit_save_output = 0
+      vim.g.jukit_mappings_ext_enabled = { "py", "sh" }
+      vim.g.jukit_hl_ext_enabled = { "py", "sh" }
     end,
     ft = { "py" }, -- otherwise cell separators won't be highlighted until a keymap is used
     keys = {
       {
-        "<leader>jwr",
-        "<cmd>call jukit#splits#output()<cr>",
-        desc = "Open python REPL",
+        "<leader>jww",
+        [[<cmd>lua require("config.jukit").JukitStartInVenv(true)<cr>]],
+        desc = "Open python REPL in new window",
       },
-      { "<leader>jws", "<cmd>call jukit#splits#term()<cr>", desc = "Open shell" },
+      {
+        "<leader>jws",
+        [[<cmd>lua require("config.jukit").JukitStartInVenv(false)<cr>]],
+        desc = "Open python REPL in new split",
+      },
+      { "<leader>jwt", "<cmd>call jukit#splits#term()<cr>", desc = "Open shell" },
       {
         "<leader>jwc",
         "<cmd>call jukit#splits#close_output_split()<cr>",
