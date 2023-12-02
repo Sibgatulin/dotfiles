@@ -11,3 +11,6 @@ $unbindsym $mod+Shift+p
 $bindsym $mod+p exec $clipboard
 $bindsym $mod+Shift+p exec $clipboard-del
 $bindsym $mod+Shift+w exec env RUST_BACKTRACE=1 swayr switch-window &>> /tmp/swayr.log
+
+$unbindsym $alt_mod+space
+$bindsym $alt_mod+space exec $menu_full
