@@ -1,12 +1,28 @@
-profile corant {
+profile am_steiger {
+    output eDP-1 position 0,1080
+    output "LG Electronics 22MB35 610NTAB2S192"  position 0,0
+}
+
+profile corant_old {
     output eDP-1 position 0,0
     output "Unknown HP 27m 1CR1110ZCM" position 1920,0
 }
-
-profile multihead {
-    output "Lenovo Group Limited LEN L27q-30 U162N76F" position 0,0
-    output eDP-1 position 2560,360
+profile corant_jr {
+    output "Dell Inc. DELL S2721HS JXYYQ83" position 0,0
+    output eDP-1 position 0,1080
 }
+
+profile multihead_vertical {
+    output eDP-1 position 0,0 scale 2
+    output "Lenovo Group Limited LEN L27q-30 U162N76F" position 1128,0 transform 90 
+    # 1128 = 2256 / 2, because of the scale factore on eDP-1 
+    # (don't understand why needed, but works 🤷)
+}
+
+# profile multihead_horizontal {
+#     output "Lenovo Group Limited LEN L27q-30 U162N76F" position 0,0
+#     output eDP-1 position 152,1440
+# }
 
 profile singlehead {
     output eDP-1 position 0,0
