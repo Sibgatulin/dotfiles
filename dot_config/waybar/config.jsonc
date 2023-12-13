@@ -323,7 +323,8 @@
     "interval": 120,
     "tooltip": true,
     "return-type": "json",
-    "exec": "PSTATE=$(powerprofilesctl get); printf '{\"alt\": \"%s\", \"tooltip\": \"Active power profile: %s\"}\n' $PSTATE $PSTATE",
+    // without sleep 0.3 execution after a click does not capture the new icon
+    "exec": "sleep 0.3 && PSTATE=$(powerprofilesctl get); printf '{\"alt\": \"%s\", \"tooltip\": \"Active power profile: %s\"}\n' $PSTATE $PSTATE",
     "format": "{icon} ",
     "on-click": "/data/soft/powerprofilecycle/powerprofilecycle.sh",
     "exec-on-event": true,
