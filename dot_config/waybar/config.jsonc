@@ -19,12 +19,12 @@
   ],
   "modules-center": [
     "custom/wf-recorder",
-    "sway/mode",
-    "tray",
-    "custom/pacman"
+    "sway/mode"
     // "custom/weather"
   ],
   "modules-right": [
+    "tray",
+    "custom/pacman",
     // informational
     "sway/language",
     // "custom/github",
